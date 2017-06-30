@@ -45,13 +45,13 @@ class TypeChicken extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'comments' => Yii::t('app', 'Comments'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created' => Yii::t('app', 'Created'),
-            'modified_by' => Yii::t('app', 'Modified By'),
-            'modified' => Yii::t('app', 'Modified'),
+            'id'            => Yii::t('type-chicken', 'id'),
+            'name'          => Yii::t('type-chicken', 'name'),
+            'comments'      => Yii::t('type-chicken', 'comments'),
+            'created'       => Yii::t('type-chicken', 'created'),
+            'created_by'    => Yii::t('type-chicken', 'created_by'),
+            'modified'      => Yii::t('type-chicken', 'modified'),
+            'modified_by'   => Yii::t('type-chicken', 'modified_by'),
         ];
     }
 }

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TypeChicken */
 
-$this->title = 'Create Type Chicken';
-$this->params['breadcrumbs'][] = ['label' => 'Type Chickens', 'url' => ['index']];
+$this->title = Yii::t('type-chicken', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('type-chicken', 'type-chickens'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="type-chicken-create">

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\TypeDiscardSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Type Discards';
+$this->title = Yii::t('type-discard', 'type-discards');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="type-discard-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Type Discard', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('type-discard', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

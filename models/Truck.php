@@ -44,13 +44,14 @@ class Truck extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'id_driver' => Yii::t('app', 'Id Driver'),
-            'licence_plate' => Yii::t('app', 'Licence Plate'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created' => Yii::t('app', 'Created'),
-            'modified_by' => Yii::t('app', 'Modified By'),
-            'modified' => Yii::t('app', 'Modified'),
+            'id'            => Yii::t('truck', 'id'),
+            'id_driver'     => Yii::t('truck', 'id_driver'),
+            'licence_plate' => Yii::t('truck', 'licence_plate'),
+            'created'       => Yii::t('truck', 'created'),
+            'created_by'    => Yii::t('truck', 'created_by'),
+            'modified'      => Yii::t('truck', 'modified'),
+            'modified_by'   => Yii::t('truck', 'modified_by'),
+        
         ];
     }
 }

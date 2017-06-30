@@ -43,12 +43,12 @@ class TypeDiscard extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'            => Yii::t('type-discard', 'id'),
+            'name'          => Yii::t('type-discard', 'name'),
+            'created'       => Yii::t('type-discard', 'created'),
+            'created_by'    => Yii::t('type-discard', 'created_by'),
+            'modified'      => Yii::t('type-discard', 'modified'),
+            'modified_by'   => Yii::t('type-discard', 'modified_by'),
         ];
     }
 }

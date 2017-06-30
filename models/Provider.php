@@ -52,18 +52,18 @@ class Provider extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'phone' => Yii::t('app', 'Phone'),
-            'contact_name' => Yii::t('app', 'Contact Name'),
-            'email' => Yii::t('app', 'Email'),
-            'ci' => Yii::t('app', 'Ci'),
-            'quantity_cage' => Yii::t('app', 'Quantity Cage'),
-            'is_cage_own' => Yii::t('app', 'Is Cage Own'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created' => Yii::t('app', 'Created'),
-            'modified_by' => Yii::t('app', 'Modified By'),
-            'modified' => Yii::t('app', 'Modified'),
+            'id'            => Yii::t('provider', 'id'),
+            'name'          => Yii::t('provider', 'name'),
+            'phone'         => Yii::t('provider', 'phone'),
+            'contact_name'  => Yii::t('provider', 'contact_name'),
+            'email'         => Yii::t('provider', 'email'),
+            'ci'            => Yii::t('provider', 'ci'),
+            'quantity_cage' => Yii::t('provider', 'quantity_cage'),
+            'is_cage_own'   => Yii::t('provider', 'is_cage_own'),
+            'created'       => Yii::t('provider', 'created'),
+            'created_by'    => Yii::t('provider', 'created_by'),
+            'modified'      => Yii::t('provider', 'modified'),
+            'modified_by'   => Yii::t('provider', 'modified_by'),
         ];
     }
 }

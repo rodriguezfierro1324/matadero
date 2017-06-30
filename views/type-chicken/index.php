@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\TypeChickenSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Type Chickens';
+$this->title = Yii::t('type-chicken', 'type-chickens');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="type-chicken-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Type Chicken', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('type-chicken', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

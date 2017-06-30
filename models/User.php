@@ -53,17 +53,17 @@ class User extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'last_name' => Yii::t('app', 'Last Name'),
-            'ci' => Yii::t('app', 'Ci'),
-            'username' => Yii::t('app', 'Username'),
-            'pwd' => Yii::t('app', 'Pwd'),
-            'id_status' => Yii::t('app', 'Id Status'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'            => Yii::t('user', 'id'),
+            'name'          => Yii::t('user', 'name'),
+            'last_name'     => Yii::t('user', 'last_name'),
+            'ci'            => Yii::t('user', 'ci'),
+            'username'      => Yii::t('user', 'username'),
+            'pwd'           => Yii::t('user', 'pwd'),
+            'id_status'     => Yii::t('user', 'id_status'),
+            'created'       => Yii::t('user', 'created'),
+            'created_by'    => Yii::t('user', 'created_by'),
+            'modified'      => Yii::t('user', 'modified'),
+            'modified_by'   => Yii::t('user', 'modified_by'),
         ];
     }
 }

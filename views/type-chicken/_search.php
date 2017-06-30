@@ -21,17 +21,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'comments') ?>
 
-    <?= $form->field($model, 'created_by') ?>
+    <!-- <?= $form->field($model, 'created_by') ?>
 
-    <?= $form->field($model, 'created') ?>
+    <?= $form->field($model, 'created') ?> -->
 
     <?php // echo $form->field($model, 'modified_by') ?>
 
     <?php // echo $form->field($model, 'modified') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('type-chicken', 'search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('type-chicken', 'reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

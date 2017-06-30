@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Provider */
 
-$this->title = 'Create Provider';
-$this->params['breadcrumbs'][] = ['label' => 'Providers', 'url' => ['index']];
+$this->title = Yii::t('provider', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('provider', 'providers'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="provider-create">
