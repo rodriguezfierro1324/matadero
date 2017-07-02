@@ -47,15 +47,15 @@ class Pigment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
-            'destination' => Yii::t('app', 'Destination'),
-            'id_status' => Yii::t('app', 'Id Status'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'            => Yii::t('pigment', 'id'),
+            'name'          => Yii::t('pigment', 'name'),
+            'description'   => Yii::t('pigment', 'description'),
+            'destination'   => Yii::t('pigment', 'destination'),
+            'id_status'     => Yii::t('pigment', 'id_status'),
+            'created'       => Yii::t('pigment', 'created'),
+            'created_by'    => Yii::t('pigment', 'created_by'),
+            'modified'      => Yii::t('pigment', 'modified'),
+            'modified_by'   => Yii::t('pigment', 'modified_by'),
         ];
     }
 }

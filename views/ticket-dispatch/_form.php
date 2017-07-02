@@ -30,16 +30,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_driver')->textInput() ?>
 
-    <?= $form->field($model, 'created_by')->textInput() ?>
+<!--     <?= $form->field($model, 'created_by')->textInput() ?>
 
     <?= $form->field($model, 'created')->textInput() ?>
 
     <?= $form->field($model, 'modified_by')->textInput() ?>
 
-    <?= $form->field($model, 'modified')->textInput() ?>
+    <?= $form->field($model, 'modified')->textInput() ?> -->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('ticket_dispatch', 'create') : Yii::t('ticket_dispatch', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

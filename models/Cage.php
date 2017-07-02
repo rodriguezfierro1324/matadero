@@ -45,15 +45,15 @@ class Cage extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'id_status' => Yii::t('app', 'Id Status'),
-            'quantity' => Yii::t('app', 'Quantity'),
-            'id_provider' => Yii::t('app', 'Id Provider'),
-            'operation' => Yii::t('app', 'Operation'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'            => Yii::t('cage', 'id'),
+            'id_status'     => Yii::t('cage', 'id_status'),
+            'quantity'      => Yii::t('cage', 'quantity'),
+            'id_provider'   => Yii::t('cage', 'id_provider'),
+            'operation'     => Yii::t('cage', 'operation'),
+            'created'       => Yii::t('cage', 'created'),
+            'created_by'    => Yii::t('cage', 'created_by'),
+            'modified'      => Yii::t('cage', 'modified'),
+            'modified_by'   => Yii::t('cage', 'modified_by'),
         ];
     }
 }

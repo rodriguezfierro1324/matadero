@@ -54,22 +54,22 @@ class Lot extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'code' => Yii::t('app', 'Code'),
-            'id_ticket_receipt' => Yii::t('app', 'Id Ticket Receipt'),
-            'id_pigment' => Yii::t('app', 'Id Pigment'),
-            'comments' => Yii::t('app', 'Comments'),
-            'id_status' => Yii::t('app', 'Id Status'),
-            'quantity_chicken' => Yii::t('app', 'Quantity Chicken'),
-            'counter_1' => Yii::t('app', 'Counter 1'),
-            'counter_2' => Yii::t('app', 'Counter 2'),
-            'total' => Yii::t('app', 'Total'),
-            'type_chicken' => Yii::t('app', 'Type Chicken'),
-            'quantity_discard' => Yii::t('app', 'Quantity Discard'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'                => Yii::t('lot', 'id'),
+            'code'              => Yii::t('lot', 'code'),
+            'id_ticket_receipt' => Yii::t('lot', 'id_ticket_receipt'),
+            'id_pigment'        => Yii::t('lot', 'id_pigment'),
+            'comments'          => Yii::t('lot', 'comments'),
+            'id_status'         => Yii::t('lot', 'id_status'),
+            'quantity_chicken'  => Yii::t('lot', 'quantity_chicken'),
+            'counter_1'         => Yii::t('lot', 'counter_1'),
+            'counter_2'         => Yii::t('lot', 'counter_2'),
+            'total'             => Yii::t('lot', 'total'),
+            'type_chicken'      => Yii::t('lot', 'type_chicken'),
+            'quantity_discard'  => Yii::t('lot', 'quantity_discard'),
+            'created'           => Yii::t('lot', 'created'),
+            'created_by'        => Yii::t('lot', 'created_by'),
+            'modified'          => Yii::t('lot', 'modified'),
+            'modified_by'       => Yii::t('lot', 'modified_by'),
         ];
     }
 }

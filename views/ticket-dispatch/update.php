@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketDispatch */
 
-$this->title = 'Update Ticket Dispatch: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Ticket Dispatches', 'url' => ['index']];
+$this->title = Yii::t('ticket_dispatch', 'update').': ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ticket_dispatch', 'type-dispatchs'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('ticket_dispatch', 'update');
 ?>
 <div class="ticket-dispatch-update">
 

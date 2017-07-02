@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\TicketReceiptSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ticket Receipts';
+$this->title = Yii::t('ticket-receipt', 'type-receipts');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ticket-receipt-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Ticket Receipt', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('ticket-receipt', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

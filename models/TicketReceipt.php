@@ -52,20 +52,20 @@ class TicketReceipt extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'id_provider' => Yii::t('app', 'Id Provider'),
-            'id_truck' => Yii::t('app', 'Id Truck'),
-            'id_driver' => Yii::t('app', 'Id Driver'),
-            'quantity_chicken' => Yii::t('app', 'Quantity Chicken'),
-            'gross_weight' => Yii::t('app', 'Gross Weight'),
-            'tare_weight' => Yii::t('app', 'Tare Weight'),
-            'net_weight' => Yii::t('app', 'Net Weight'),
-            'quantity_cage' => Yii::t('app', 'Quantity Cage'),
-            'code' => Yii::t('app', 'Code'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created' => Yii::t('app', 'Created'),
-            'modified_by' => Yii::t('app', 'Modified By'),
-            'modified' => Yii::t('app', 'Modified'),
+            'id'                => Yii::t('ticket-receipt', 'id'),
+            'id_provider'       => Yii::t('ticket-receipt', 'id_provider'),
+            'id_truck'          => Yii::t('ticket-receipt', 'id_truck'),
+            'id_driver'         => Yii::t('ticket-receipt', 'id_driver'),
+            'quantity_chicken'  => Yii::t('ticket-receipt', 'quantity_chicken'),
+            'gross_weight'      => Yii::t('ticket-receipt', 'gross_weight'),
+            'tare_weight'       => Yii::t('ticket-receipt', 'tare_weight'),
+            'net_weight'        => Yii::t('ticket-receipt', 'net_weight'),
+            'quantity_cage'     => Yii::t('ticket-receipt', 'quantity_cage'),
+            'code'              => Yii::t('ticket-receipt', 'code'),
+            'created_by'        => Yii::t('ticket-receipt', 'created_by'),
+            'created'           => Yii::t('ticket-receipt', 'created'),
+            'modified_by'       => Yii::t('ticket-receipt', 'modified_by'),
+            'modified'          => Yii::t('ticket-receipt', 'modified'),
         ];
     }
 }

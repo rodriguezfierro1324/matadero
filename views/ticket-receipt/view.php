@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\TicketReceipt */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Ticket Receipts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ticket-receipt', 'type-receipts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ticket-receipt-view">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('ticket-receipt', 'delete_confirm'),
                 'method' => 'post',
             ],
         ]) ?>

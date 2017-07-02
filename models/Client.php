@@ -49,16 +49,16 @@ class Client extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'id_status' => Yii::t('app', 'Id Status'),
-            'phone' => Yii::t('app', 'Phone'),
-            'ci' => Yii::t('app', 'Ci'),
-            'contact_name' => Yii::t('app', 'Contact Name'),
-            'created' => Yii::t('app', 'Created'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'modified' => Yii::t('app', 'Modified'),
-            'modified_by' => Yii::t('app', 'Modified By'),
+            'id'            => Yii::t('client', 'id'),
+            'name'          => Yii::t('client', 'name'),
+            'id_status'     => Yii::t('client', 'id_statuss'),
+            'phone'         => Yii::t('client', 'phone'),
+            'ci'            => Yii::t('client', 'ci'),
+            'contact_name'  => Yii::t('client', 'contact_name'),
+            'created'       => Yii::t('client', 'created'),
+            'created_by'    => Yii::t('client', 'created_by'),
+            'modified'      => Yii::t('client', 'modified'),
+            'modified_by'   => Yii::t('client', 'modified_by'),
         ];
     }
 }
