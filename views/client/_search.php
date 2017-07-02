@@ -36,8 +36,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'modified_by') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('client', 'search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('client', 'reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

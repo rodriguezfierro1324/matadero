@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\DriverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('driver', 'drivers');
+$this->title = 'Drivers';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('driver', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Driver', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

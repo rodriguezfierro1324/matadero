@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Cage */
 
-$this->title = Yii::t('cage', 'update').': ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cage', 'cages'), 'url' => ['index']];
+$this->title = 'Update Cage: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Cages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('cage', 'update');
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="cage-update">
 

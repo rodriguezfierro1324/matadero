@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Pigment */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('pigment', 'pigments'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Pigments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pigment-view">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('pigment', 'delete_confirm'),
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>

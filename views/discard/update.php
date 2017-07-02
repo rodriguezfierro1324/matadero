@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Discard */
 
-$this->title = Yii::t('discard', 'update').': ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('discard', 'discards'), 'url' => ['index']];
+$this->title = 'Update Discard: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Discards', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
