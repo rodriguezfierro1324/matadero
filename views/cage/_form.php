@@ -20,13 +20,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'operation')->textInput() ?>
 
-    <?= $form->field($model, 'created')->textInput() ?>
+<!--     <?= $form->field($model, 'created')->textInput() ?>
 
     <?= $form->field($model, 'created_by')->textInput() ?>
 
     <?= $form->field($model, 'modified')->textInput() ?>
 
-    <?= $form->field($model, 'modified_by')->textInput() ?>
+    <?= $form->field($model, 'modified_by')->textInput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('cage', 'create') : Yii::t('cage', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
