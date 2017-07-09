@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cages';
+$this->title = Yii::t('cage', 'cages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cage-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cage', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('cage', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

@@ -68,4 +68,9 @@ class Cage extends \yii\db\ActiveRecord
             'modified_by'   => Yii::t('cage', 'modified_by'),
         ];
     }
+    public function getProvider($id_provider)
+    {
+        $provider = Provider::find()->where(['id' => $id_provider])->One();
+        return $provider->name;
+    }
 }

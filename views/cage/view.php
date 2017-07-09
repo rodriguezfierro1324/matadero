@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Cage */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Cages', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('cage', 'cages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cage-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('cage', 'update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('cage', 'delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('cage', 'confirm_delete'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_status',
             'quantity',
-            'id_provider',
+            // 'id_provider',
+            [
+                'attribute'=>'id_provider',
+                'value'=>$model->getProvider($model->id_provider)
+            ],
             'operation',
             'created',
             'created_by',
