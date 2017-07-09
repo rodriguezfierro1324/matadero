@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "ticket_dispatch".
  *
@@ -31,14 +32,25 @@ class TicketDispatch extends \yii\db\ActiveRecord
     {
         return 'ticket_dispatch';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+    /**
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_lot', 'quantity', 'id_client', 'weight', 'code', 'type_chicken', 'cage', 'id_truck', 'id_driver', 'created_by', 'created', 'modified_by', 'modified'], 'required'],
+            [['id_lot', 'quantity', 'id_client', 'weight', 'code', 'type_chicken', 'cage', 'id_truck', 'id_driver'], 'required'],
             [['id_lot', 'quantity', 'id_client', 'type_chicken', 'cage', 'id_truck', 'id_driver', 'created_by', 'modified_by'], 'integer'],
             [['weight'], 'number'],
             [['created', 'modified'], 'safe'],

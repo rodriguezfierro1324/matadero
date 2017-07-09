@@ -4,6 +4,9 @@ namespace app\models;
 
 use Yii;
 
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+
 /**
  * This is the model class for table "truck".
  *
@@ -24,14 +27,24 @@ class Truck extends \yii\db\ActiveRecord
     {
         return 'truck';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_driver', 'licence_plate', 'created_by', 'created', 'modified_by', 'modified'], 'required'],
+            [['id_driver', 'licence_plate'], 'required'],
             [['id_driver', 'created_by', 'modified_by'], 'integer'],
             [['licence_plate'], 'string'],
             [['created', 'modified'], 'safe'],

@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "cage".
  *
@@ -26,14 +28,24 @@ class Cage extends \yii\db\ActiveRecord
     {
         return 'cage';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_status', 'quantity', 'id_provider', 'operation', 'created', 'created_by', 'modified', 'modified_by'], 'required'],
+            [['id_status', 'quantity', 'id_provider', 'operation'], 'required'],
             [['id_status', 'quantity', 'id_provider', 'operation', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
         ];

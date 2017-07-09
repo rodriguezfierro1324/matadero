@@ -4,6 +4,10 @@ namespace app\models;
 
 use Yii;
 
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+
+
 /**
  * This is the model class for table "type_discard".
  *
@@ -23,14 +27,24 @@ class TypeDiscard extends \yii\db\ActiveRecord
     {
         return 'type_discard';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'created', 'created_by', 'modified', 'modified_by'], 'required'],
+            [['name'], 'required'],
             [['created', 'modified'], 'safe'],
             [['created_by', 'modified_by'], 'integer'],
             [['name'], 'string', 'max' => 100],

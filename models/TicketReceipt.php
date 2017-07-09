@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "ticket_receipt".
  *
@@ -31,7 +32,18 @@ class TicketReceipt extends \yii\db\ActiveRecord
     {
         return 'ticket_receipt';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+    /**
     /**
      * @inheritdoc
      */
@@ -45,7 +57,7 @@ class TicketReceipt extends \yii\db\ActiveRecord
             [['code'], 'string', 'max' => 12],
         ];
     }
-
+    
     /**
      * @inheritdoc
      */

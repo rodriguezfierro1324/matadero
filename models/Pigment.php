@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "pigment".
  *
@@ -26,7 +27,17 @@ class Pigment extends \yii\db\ActiveRecord
     {
         return 'pigment';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */

@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "provider".
  *
@@ -29,14 +30,24 @@ class Provider extends \yii\db\ActiveRecord
     {
         return 'provider';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'phone', 'contact_name', 'email', 'ci', 'quantity_cage', 'is_cage_own', 'created_by', 'created', 'modified_by', 'modified'], 'required'],
+            [['name', 'phone', 'contact_name', 'email', 'ci', 'quantity_cage', 'is_cage_own'], 'required'],
             [['email', 'quantity_cage', 'is_cage_own', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name'], 'string', 'max' => 150],

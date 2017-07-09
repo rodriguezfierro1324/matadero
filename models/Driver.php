@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "driver".
  *
@@ -27,14 +28,24 @@ class Driver extends \yii\db\ActiveRecord
     {
         return 'driver';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'last_name', 'ci', 'phone', 'id_provider', 'created_by', 'created', 'modified_by', 'modified'], 'required'],
+            [['name', 'last_name', 'ci', 'phone', 'id_provider'], 'required'],
             [['id_provider', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name', 'phone'], 'string', 'max' => 50],

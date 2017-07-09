@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "type_chicken".
  *
@@ -24,14 +26,24 @@ class TypeChicken extends \yii\db\ActiveRecord
     {
         return 'type_chicken';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'comments', 'created_by', 'created', 'modified_by', 'modified'], 'required'],
+            [['name'], 'required'],
             [['created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name'], 'string', 'max' => 50],

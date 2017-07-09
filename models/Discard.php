@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 /**
  * This is the model class for table "discard".
  *
@@ -26,14 +27,24 @@ class Discard extends \yii\db\ActiveRecord
     {
         return 'discard';
     }
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'modified',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_type_discard', 'weight', 'comments', 'id_status', 'created', 'created_by', 'modified', 'modified_by'], 'required'],
+            [['id_type_discard', 'weight', 'comments', 'id_status'], 'required'],
             [['id_type_discard', 'comments', 'id_status', 'created', 'created_by', 'modified', 'modified_by'], 'integer'],
             [['weight'], 'number'],
         ];
