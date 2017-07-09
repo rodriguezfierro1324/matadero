@@ -14,7 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_status')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
+    <?= $form->field($model, 'id_status')->dropdownList(['1' => 'Activo', '2' => 'Inactivo'], ['prompt' => '--- Seleccione ---']) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 

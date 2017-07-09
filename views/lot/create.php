@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Lot */
 
-$this->title = 'Create Lot';
-$this->params['breadcrumbs'][] = ['label' => 'Lots', 'url' => ['index']];
+$this->title = Yii::t('lot', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('lot', 'lots'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lot-create">

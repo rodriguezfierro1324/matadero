@@ -41,7 +41,7 @@ class Lot extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'id_ticket_receipt', 'id_pigment', 'id_status', 'quantity_chicken', 'counter_1', 'counter_2', 'total', 'type_chicken', 'quantity_discard'], 'required'],
+            [['code', 'id_ticket_receipt', 'id_pigment', 'id_status', 'quantity_chicken', 'type_chicken', 'quantity_discard'], 'required'],
             [['id_ticket_receipt', 'id_pigment', 'id_status', 'quantity_chicken', 'counter_1', 'counter_2', 'total', 'type_chicken', 'quantity_discard', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['code'], 'string', 'max' => 12],

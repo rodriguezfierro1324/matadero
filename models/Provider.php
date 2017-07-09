@@ -48,10 +48,11 @@ class Provider extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'phone', 'contact_name', 'email', 'ci', 'quantity_cage', 'is_cage_own'], 'required'],
-            [['email', 'quantity_cage', 'is_cage_own', 'created_by', 'modified_by'], 'integer'],
+            [['quantity_cage', 'is_cage_own', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name'], 'string', 'max' => 150],
             [['phone'], 'string', 'max' => 50],
+            [['email'], 'email'],
             [['contact_name'], 'string', 'max' => 250],
             [['ci'], 'string', 'max' => 15],
         ];

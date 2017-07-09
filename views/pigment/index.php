@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PigmentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pigments';
+$this->title = Yii::t('pigment', 'pigments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pigment-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Pigment', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('pigment', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

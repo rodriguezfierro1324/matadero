@@ -84,4 +84,8 @@ class Client extends \yii\db\ActiveRecord
     //     }
     //     return parent::beforeSave($insert);
     // }
+    public function actionListStatus() {
+        $status = ['1'=>'Activo', '2'=>'Inactivo'];  
+        $this->render('_form', ['status'=>$status]);
+    }
 }

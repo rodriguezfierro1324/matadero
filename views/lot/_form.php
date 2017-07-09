@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+use yii\helpers\ArrayHelper;
+use app\models\TypeChicken;
+use app\models\Pigment;
 /* @var $this yii\web\View */
 /* @var $model app\models\Lot */
 /* @var $form yii\widgets\ActiveForm */
@@ -16,11 +19,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_ticket_receipt')->textInput() ?>
 
-    <?= $form->field($model, 'id_pigment')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_pigment')->textInput() ?> -->
+    <?= $form->field($model, 'id_pigment')
+     ->dropDownList(
+            ArrayHelper::map(Pigment::find()->asArray()->all(), 'id', 'name'),
+            ['prompt' => '--- Seleccione ---']
+    ) ?>
 
     <?= $form->field($model, 'comments')->textarea(['rows' => '6']) ?>
 
-    <?= $form->field($model, 'id_status')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
+    <?= $form->field($model, 'id_status')->dropdownList(['1' => 'Activo', '2' => 'Inactivo'], ['prompt' => '--- Seleccione ---']) ?>
+
 
     <?= $form->field($model, 'quantity_chicken')->textInput() ?>
 
@@ -30,7 +40,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'total')->textInput() ?> -->
 
-    <?= $form->field($model, 'type_chicken')->textInput() ?>
+    <!-- <?= $form->field($model, 'type_chicken')->textInput() ?> -->
+    <?= $form->field($model, 'type_chicken')
+     ->dropDownList(
+            ArrayHelper::map(TypeChicken::find()->asArray()->all(), 'id', 'name'),
+            ['prompt' => '--- Seleccione ---']
+    ) ?>
 
     <?= $form->field($model, 'quantity_discard')->textInput() ?>
 
@@ -43,7 +58,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'modified_by')->textInput() ?> -->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('lot', 'create') : Yii::t('lot', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

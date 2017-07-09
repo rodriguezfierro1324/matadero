@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Pigment */
 
-$this->title = 'Create Pigment';
+$this->title = Yii::t('pigment', 'create');
 $this->params['breadcrumbs'][] = ['label' => 'Pigments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

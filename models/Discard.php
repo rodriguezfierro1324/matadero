@@ -45,7 +45,8 @@ class Discard extends \yii\db\ActiveRecord
     {
         return [
             [['id_type_discard', 'weight', 'comments', 'id_status'], 'required'],
-            [['id_type_discard', 'comments', 'id_status', 'created', 'created_by', 'modified', 'modified_by'], 'integer'],
+            [['id_type_discard', 'id_status', 'created_by', 'modified_by'], 'integer'],
+            [['created', 'modified'], 'safe'],
             [['weight'], 'number'],
         ];
     }
