@@ -1,5 +1,6 @@
 <?php
 
+use yii\jui\Dialog;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -38,5 +39,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]); 
+    echo "<pre>";
+    print_r(Yii::$app->authManager->permissions);
+
+    var_dump(Yii::$app->user->can("createUser"));
+    echo "</pre>";
+    ?>
 </div>
+<?php
+Dialog::begin([
+    'clientOptions' => [
+        'modal' => true,
+                'autoOpen' => false,
+                'title' => 'Dialog',
+                'width' => '400px',
+                'buttons' => [
+                        ['text' => 'Test', 'click' => 'js:function(){alert("test")}'],
+                ],
+    ],
+    'id' => 'testDialog',
+]);
+
+echo '<p>This is a dialog</p>';
+
+Dialog::end();
+?>
