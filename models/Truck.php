@@ -48,6 +48,8 @@ class Truck extends \yii\db\ActiveRecord
             [['id_driver', 'created_by', 'modified_by'], 'integer'],
             [['licence_plate'], 'string'],
             [['created', 'modified'], 'safe'],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
@@ -60,11 +62,17 @@ class Truck extends \yii\db\ActiveRecord
             'id'            => Yii::t('truck', 'id'),
             'id_driver'     => Yii::t('truck', 'id_driver'),
             'licence_plate' => Yii::t('truck', 'licence_plate'),
+            'id_status'     => Yii::t('truck', 'id_status'),
             'created'       => Yii::t('truck', 'created'),
             'created_by'    => Yii::t('truck', 'created_by'),
             'modified'      => Yii::t('truck', 'modified'),
             'modified_by'   => Yii::t('truck', 'modified_by'),
         
         ];
+    }
+
+    public function getTrucks()
+    {
+        return Truck::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
     }
 }

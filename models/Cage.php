@@ -48,6 +48,8 @@ class Cage extends \yii\db\ActiveRecord
             [['id_status', 'quantity', 'id_provider', 'operation'], 'required'],
             [['id_status', 'quantity', 'id_provider', 'operation', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],            
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 

@@ -1,7 +1,11 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Provider;
+use app\models\Truck;
+use app\models\Driver;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketReceipt */
@@ -12,11 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_provider')->textInput() ?>
+    <?= $form->field($model, 'id_provider')->dropDownList(ArrayHelper::map(Provider::getProviders(),'id','name'),['prompt'=>'--Seleccione--']) ?>
 
-    <?= $form->field($model, 'id_truck')->textInput() ?>
+    <?= $form->field($model, 'id_truck')->dropDownList(ArrayHelper::map(Truck::getTrucks(),'id','licence_plate'),['prompt'=>'--Seleccione--']) ?>
 
-    <?= $form->field($model, 'id_driver')->textInput() ?>
+    <?= $form->field($model, 'id_driver')->dropDownList(ArrayHelper::map(Driver::getDrivers(),'id','NameComplete'),['prompt'=>'--Seleccione--']) ?>
 
     <?= $form->field($model, 'quantity_chicken')->textInput() ?>
 

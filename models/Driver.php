@@ -51,6 +51,8 @@ class Driver extends \yii\db\ActiveRecord
             [['name', 'phone'], 'string', 'max' => 50],
             [['last_name'], 'string', 'max' => 150],
             [['ci'], 'string', 'max' => 20],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
@@ -65,11 +67,20 @@ class Driver extends \yii\db\ActiveRecord
             'last_name'     => Yii::t('driver', 'last_name'),
             'ci'            => Yii::t('driver', 'ci'),
             'phone'         => Yii::t('driver', 'phone'),
+            'id_status'     => Yii::t('driver', 'id_status'),
             'id_provider'   => Yii::t('driver', 'id_provider'),
             'created_by'    => Yii::t('driver', 'created_by'),
             'created'       => Yii::t('driver', 'created'),
             'modified_by'   => Yii::t('driver', 'modified_by'),
             'modified'      => Yii::t('driver', 'modified'),
         ];
+    }
+    public function getNameComplete()
+    {
+        return $this->name.', '.$this->last_name;
+    }
+    public function getDrivers()
+    {
+        return Driver::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
     }
 }

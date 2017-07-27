@@ -55,6 +55,8 @@ class Provider extends \yii\db\ActiveRecord
             [['email'], 'email'],
             [['contact_name'], 'string', 'max' => 250],
             [['ci'], 'string', 'max' => 15],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
@@ -70,6 +72,7 @@ class Provider extends \yii\db\ActiveRecord
             'contact_name'  => Yii::t('provider', 'contact_name'),
             'email'         => Yii::t('provider', 'email'),
             'ci'            => Yii::t('provider', 'ci'),
+            'id_status'     => Yii::t('provider', 'id_status'),
             'quantity_cage' => Yii::t('provider', 'quantity_cage'),
             'is_cage_own'   => Yii::t('provider', 'is_cage_own'),
             'created'       => Yii::t('provider', 'created'),
@@ -77,5 +80,10 @@ class Provider extends \yii\db\ActiveRecord
             'modified'      => Yii::t('provider', 'modified'),
             'modified_by'   => Yii::t('provider', 'modified_by'),
         ];
+    }
+
+    public function getProviders()
+    {
+        return Provider::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
     }
 }

@@ -19,6 +19,7 @@ return [
     'ci'            => 'CI',
     'quantity_cage' => 'Nro de Canastillos',
     'is_cage_own'   => 'Canastillos Propios',
+    'id_status'     => 'Estado',
     
     'id' => 'ID',
     'created' => 'Fecha de creación',

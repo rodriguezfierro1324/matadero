@@ -1,13 +1,13 @@
 <?php
 return [
-    'type-dispatch'=>'Tipo de Despacho',
-	'type-dispatchs'=>'Tipos de Despacho',
+    'type-dispatch'=>'Ticket de Despacho',
+	'type-dispatchs'=>'Ticket de Despacho',
 
-	'create'=>'Crear Tipo de Despacho',
-    'update'=>'Actualizar Tipo de Despacho',
-    'delete'=>'Eliminar Tipo de Despacho',
+	'create'=>'Crear Ticket de Despacho',
+    'update'=>'Actualizar Ticket de Despacho',
+    'delete'=>'Eliminar Ticket de Despacho',
 
-    'delete_confirm'=>'¿Está seguro que desea eliminar a este tipo de ¿despacho?',
+    'delete_confirm'=>'¿Está seguro que desea eliminar a este Ticket de despacho?',
 
     'search'=>'Buscar',
     'reset'=>'Resetear',

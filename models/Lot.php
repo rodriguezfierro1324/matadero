@@ -46,6 +46,8 @@ class Lot extends \yii\db\ActiveRecord
             [['created', 'modified'], 'safe'],
             [['code'], 'string', 'max' => 12],
             [['comments'], 'string', 'max' => 150],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
     public function behaviors()

@@ -33,27 +33,27 @@ class UserController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index','create'],
-                        'roles' => ['admin'],
+                        'roles' => ['manageUser'],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['view'],
-                        'roles' => ['viewPost'],
+                        'roles' => ['admin'],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['create'],
-                        'roles' => ['createPost'],
+                        'roles' => ['manageUser'],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['update'],
-                        'roles' => ['updatePost'],
+                        'roles' => ['manageUser'],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['delete'],
-                        'roles' => ['deletePost'],
+                        'roles' => ['manageUser'],
                     ],
                 ],
             ],            
@@ -66,6 +66,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        //echo "<pre>";       print_r(Yii::$app->user);exit;
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

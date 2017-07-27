@@ -52,6 +52,8 @@ class Client extends \yii\db\ActiveRecord
             [['name', 'phone'], 'string', 'max' => 50],
             [['ci'], 'string', 'max' => 15],
             [['contact_name'], 'string', 'max' => 150],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 

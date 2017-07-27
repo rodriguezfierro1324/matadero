@@ -1,9 +1,9 @@
 <?php
 return [
-    'type-receipt'=>'Tipo de Recibo',
-	'type-receipts'=>'Tipos de Recibo',
+    'ticket-receipt'=>'Recibo',
+	'ticket-receipts'=>'Recibo',
 
-	'create'=>'Crear Tipo de Recibo',
+	'create'=>'Crear Recibo',
     'update'=>'Actualizar Tipo de Recibo',
     'delete'=>'Eliminar Tipo de Recibo',
 

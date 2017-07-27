@@ -60,7 +60,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['username'], 'string', 'max' => 20],
             [['pwd'], 'string', 'max' => 250],
             [['username'], 'unique'],
-            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ]
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
@@ -155,99 +156,60 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function getMenuItems()
     {
-         /*return [
-                    ['label' => 'Usuarios', 
-                        'items'=>[
-                            'label'=>Yii::t('user','users'), 'url' => ['/user/index'],
-                            'label'=>Yii::t('user','create'), 'url' => ['/user/create']
-                        ]],
-                    ['label' => 'Clientes', 
-                        'items'=>[
-                            'label'=>Yii::t('client','clients'), 'url' => ['/client/index'],
-                            'label'=>Yii::t('client','create'), 'url' => ['/client/create']
-                        ]],
-                    ['label' => 'Jaulas', 
-                        'items'=>[
-                            'label'=>Yii::t('cage','cages'), 'url' => ['/cage/index'],
-                            'label'=>Yii::t('cage','create'), 'url' => ['/cage/create']
-                        ]],
-                    ['label' => 'Lotes',
-                        'items'=>[
-                                'label'=>Yii::t('lot','lots'), 'url' => ['/lot/index'],
-                                'label'=>Yii::t('lot','create'), 'url' => ['/lot/create']
-                            ]],
-                    ['label' => 'Desechos', 
-                        'items'=>[
-                            'label'=>Yii::t('discard','discards'), 'url' => ['/discard/index'],
-                            'label'=>Yii::t('discard','create'), 'url' => ['/discard/create']
-                        ]],
-                    ['label' => 'Camiones',
-                        'items'=>[
-                            'label'=>Yii::t('truck','trucks'), 'url' => ['/truck/index'],
-                            'label'=>Yii::t('truck','create'), 'url' => ['/truck/create']
-                        ]],
-                    ['label' => 'Tickets', 
-                        'items'=>[
-                            'label'=>Yii::t('ticket-dispatch','ticket-dispatchs'), 'url' => ['/ticket-dispatch/index'],
-                            'label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create'],
-                            'label'=>Yii::t('ticket-receipt','ticket-receipts'), 'url' => ['/ticket-receipt/index'],
-                            'label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']
-                        ]],
-                    ['label' => 'Contact', 'url' => ['/site/contact']]
-                ];*/
-                return [
-                    ['label' => 'Usuarios', 
-                        'items'=>[
-                            ['label'=>Yii::t('user','users'), 'url' => ['/user/index']],
-                            ['label'=>Yii::t('user','create'), 'url' => ['/user/create']]
-                        ]],
-                    ['label' => 'Clientes', 
-                        'items'=>[
-                            ['label'=>Yii::t('client','clients'), 'url' => ['/client/index']],
-                            ['label'=>Yii::t('client','create'), 'url' => ['/client/create']]
-                        ]],
-                    ['label' => 'Jaulas', 
-                        'items'=>[
-                            ['label'=>Yii::t('cage','cages'), 'url' => ['/cage/index']],
-                            ['label'=>Yii::t('cage','create'), 'url' => ['/cage/create']]
-                        ]],
-                    ['label' => 'Lotes',
-                        'items'=>[
-                                ['label'=>Yii::t('lot','lots'), 'url' => ['/lot/index']],
-                                ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']]
-                            ]],
-                    ['label' => 'Desechos', 
-                        'items'=>[
-                            ['label'=>Yii::t('discard','discards'), 'url' => ['/discard/index']],
-                            ['label'=>Yii::t('discard','create'), 'url' => ['/discard/create']]
-                        ]],
-                    ['label' => 'Camiones',
-                        'items'=>[
-                            ['label'=>Yii::t('truck','trucks'), 'url' => ['/truck/index']],
-                            ['label'=>Yii::t('truck','create'), 'url' => ['/truck/create']]
-                        ]],
-                    ['label' => 'Tickets', 
-                        'items'=>[
-                            ['label'=>Yii::t('ticket-dispatch','ticket-dispatchs'), 'url' => ['/ticket-dispatch/index']],
-                            ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],
-                            ['label'=>Yii::t('ticket-receipt','ticket-receipts'), 'url' => ['/ticket-receipt/index']],
-                            ['label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']]
-                        ]],
-                    
-                    Yii::$app->user->isGuest ? (
-                        ['label' => 'Login', 'url' => ['/site/login']]
-                    ) : (
-                        '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                            'Logout (' . Yii::$app->user->identity->username . ')',
-                            ['class' => 'btn btn-link logout']
-                        )
-                        . Html::endForm()
-                        . '</li>'
-                    )
-                ];
+         
+        return [
+            ['label' => 'Tickets', 
+                'items'=>[
+                    ['label'=>Yii::t('ticket-dispatch','ticket-dispatchs'), 'url' => ['/ticket-dispatch/index']],
+                    ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],
+                    ['label'=>'','options'=>['class'=>'divider']],
+                    ['label'=>Yii::t('ticket-receipt','ticket-receipts'), 'url' => ['/ticket-receipt/index']],
+                    ['label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']]
+                ]],
+            ['label' => 'Usuarios', 
+                'items'=>[
+                    ['label'=>Yii::t('user','users'), 'url' => ['/user/index']],
+                    ['label'=>Yii::t('user','create'), 'url' => ['/user/create']]
+                ]],
+            ['label' => 'Clientes', 
+                'items'=>[
+                    ['label'=>Yii::t('client','clients'), 'url' => ['/client/index']],
+                    ['label'=>Yii::t('client','create'), 'url' => ['/client/create']]
+                ]],
+            ['label' => 'Jaulas', 
+                'items'=>[
+                    ['label'=>Yii::t('cage','cages'), 'url' => ['/cage/index']],
+                    ['label'=>Yii::t('cage','create'), 'url' => ['/cage/create']]
+                ]],
+            ['label' => 'Lotes',
+                'items'=>[
+                        ['label'=>Yii::t('lot','lots'), 'url' => ['/lot/index']],
+                        ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']]
+                    ]],
+            ['label' => 'Desechos', 
+                'items'=>[
+                    ['label'=>Yii::t('discard','discards'), 'url' => ['/discard/index']],
+                    ['label'=>Yii::t('discard','create'), 'url' => ['/discard/create']]
+                ]],
+            ['label' => 'Camiones',
+                'items'=>[
+                    ['label'=>Yii::t('truck','trucks'), 'url' => ['/truck/index']],
+                    ['label'=>Yii::t('truck','create'), 'url' => ['/truck/create']]
+                ]],
             
-        //],
+            
+            Yii::$app->user->isGuest ? (
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ) : (
+                '<li>'
+                . Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
+        ];
     }
 }

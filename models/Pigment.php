@@ -49,6 +49,8 @@ class Pigment extends \yii\db\ActiveRecord
             [['created', 'modified'], 'safe'],
             [['name', 'destination'], 'string', 'max' => 50],
             [['description'], 'string', 'max' => 150],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 

@@ -40,10 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); 
-    echo "<pre>";
-    print_r(Yii::$app->authManager->permissions);
+    echo "<pre>";    
+    $user_id=Yii::$app->user->id;
+    echo $user_id;
+    print_r(Yii::$app->authManager->getUserIdsByRole('admin'));
+    print_r(Yii::$app->authManager->getRolesByUser($user_id));
+    //print_r(Yii::$app->authManager->permissions);
 
-    var_dump(Yii::$app->user->can("createUser"));
+    //var_dump(Yii::$app->user->can("createUser"));
     echo "</pre>";
     ?>
 </div>

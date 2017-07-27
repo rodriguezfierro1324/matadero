@@ -55,6 +55,8 @@ class TicketReceipt extends \yii\db\ActiveRecord
             [['gross_weight', 'tare_weight', 'net_weight'], 'number'],
             [['created', 'modified'], 'safe'],
             [['code'], 'string', 'max' => 12],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            //[['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
     

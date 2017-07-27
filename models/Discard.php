@@ -48,6 +48,8 @@ class Discard extends \yii\db\ActiveRecord
             [['id_type_discard', 'id_status', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['weight'], 'number'],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
