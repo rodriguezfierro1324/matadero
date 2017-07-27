@@ -1,7 +1,7 @@
 <?php
 return [
     'type-dispatch'=>'Ticket de Despacho',
-	'type-dispatchs'=>'Ticket de Despacho',
+	'type-dispatchs'=>'Tickets de Despacho',
 
 	'create'=>'Crear Ticket de Despacho',
     'update'=>'Actualizar Ticket de Despacho',

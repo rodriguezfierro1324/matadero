@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketDispatch */
 
-$this->title = Yii::t('ticket_dispatch', 'create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('ticket_dispatch', 'type-dispatchs'), 'url' => ['index']];
+$this->title = Yii::t('ticket-dispatch', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ticket-dispatch', 'type-dispatchs'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ticket-dispatch-create">

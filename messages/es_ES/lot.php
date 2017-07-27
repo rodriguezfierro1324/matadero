@@ -13,7 +13,7 @@ return [
     'reset'=>'Resetear',
     
     'code'              => 'Código',
-    'id_ticket_receipt' => 'Ticket',
+    'id_ticket_receipt' => 'Ticket de recepción',
     'id_pigment'        => 'Pigmento',
     'comments'          => 'Comentarios',
     'id_status'         => 'Estado',

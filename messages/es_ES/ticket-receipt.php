@@ -1,7 +1,7 @@
 <?php
 return [
     'ticket-receipt'=>'Recibo',
-	'ticket-receipts'=>'Recibo',
+	'ticket-receipts'=>'Recibos',
 
 	'create'=>'Crear Recibo',
     'update'=>'Actualizar Tipo de Recibo',

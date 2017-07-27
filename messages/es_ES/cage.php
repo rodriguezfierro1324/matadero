@@ -1,13 +1,13 @@
 <?php
 return [
-    'cage'=>'Canastillo',
-	'cages'=>'Canastillos',
+    'cage'=>'Jaula',
+	'cages'=>'Jaulas',
 
-	'create'=>'Crear Canastillo',
-    'update'=>'Actualizar Canastillo',
-    'delete'=>'Eliminar Canastillo',
+	'create'=>'Crear Jaula',
+    'update'=>'Actualizar Jaula',
+    'delete'=>'Eliminar Jaula',
 
-    'delete_confirm'=>'¿Está seguro que desea eliminar a este canastillo?',
+    'delete_confirm'=>'¿Está seguro que desea eliminar a este Jaula?',
 
     'search'=>'Buscar',
     'reset'=>'Resetear',
