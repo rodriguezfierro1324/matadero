@@ -1,13 +1,13 @@
 <?php
 return [
-    'ticket-receipt'=>'Recibo',
-	'ticket-receipts'=>'Recibos',
+    'ticket-receipt'=>'Ticket de recepción',
+	'ticket-receipts'=>'Tickets de recepción',
 
-	'create'=>'Crear Recibo',
-    'update'=>'Actualizar Tipo de Recibo',
-    'delete'=>'Eliminar Tipo de Recibo',
+	'create'=>'Crear Ticket de recepción',
+    'update'=>'Actualizar Tipo de Ticket de recepción',
+    'delete'=>'Eliminar Tipo de Ticket de recepción',
 
-    'delete_confirm'=>'¿Está seguro que desea eliminar a este tipo de recibo?',
+    'delete_confirm'=>'¿Está seguro que desea eliminar a este tipo de Ticket de recepción?',
 
     'search'=>'Buscar',
     'reset'=>'Resetear',

@@ -7,13 +7,14 @@ return [
     'update'=>'Actualizar Camión',
     'delete'=>'Eliminar Camión',
 
-    'delete_confirm'=>'¿Está seguro que desea eliminar a este camion?',
+    'delete_confirm'=>'¿Está seguro que desea eliminar a este camión?',
 
     'search'=>'Buscar',
     'reset'=>'Resetear',
     
     'name' => 'Nombre',
     'id_driver'     => 'Conductor',
+    'id_status'     => 'Estado',
     'licence_plate' => 'Nro de Placa',
     
     'id' => 'ID',
