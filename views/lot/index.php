@@ -26,9 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'code',
-            'id_ticket_receipt',
-            'id_pigment',
-            'comments',
+            [
+                'attribute'=>'id_ticket_receipt',
+                'value'=>'ticketR.code'
+            ],            
+            [
+                'attribute'=>'id_pigment',
+                'value'=>'pigment.name'
+            ],
+            //'comments',
             // 'id_status',
             // 'quantity_chicken',
             // 'counter_1',
@@ -36,8 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'total',
             // 'type_chicken',
             // 'quantity_discard',
-            // 'created',
-            // 'created_by',
+             'created',
+             'created_by',
             // 'modified',
             // 'modified_by',
 

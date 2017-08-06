@@ -27,6 +27,9 @@ use yii\db\Expression;
  */
 class Lot extends \yii\db\ActiveRecord
 {
+    const STATUS_DELETED=0;//eliminido
+    const STATUS_ENABLE=1;//estado activo
+    const STATUS_DISABLE=2;//estado desactivado
     /**
      * @inheritdoc
      */
@@ -41,12 +44,13 @@ class Lot extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'id_ticket_receipt', 'id_pigment', 'id_status', 'quantity_chicken', 'type_chicken', 'quantity_discard'], 'required'],
+            [['id_ticket_receipt', 'id_pigment', 'quantity_chicken', 'type_chicken', 'quantity_discard'], 'required'],
             [['id_ticket_receipt', 'id_pigment', 'id_status', 'quantity_chicken', 'counter_1', 'counter_2', 'total', 'type_chicken', 'quantity_discard', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['code'], 'string', 'max' => 12],
             [['comments'], 'string', 'max' => 150],
             [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            [['counter_1', 'counter_2','total'],'default','value'=>0],
             [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
@@ -85,5 +89,29 @@ class Lot extends \yii\db\ActiveRecord
             'modified_by'       => Yii::t('lot', 'modified_by'),
         ];
     }
-    
+    public function getCode()
+    {
+        //TODO: revisar stados para conteo
+        $total=Lot::find()->where(['id_status'=>Lot::STATUS_ENABLE])->count();
+        $total++;
+        $this->code=sprintf("LT-%06d", $total);
+    }
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+
+        $this->getCode();
+        return true;
+    }
+
+    public function getticketR()
+    {
+        return $this->hasOne(TicketReceipt::className(),['id'=>'id_ticket_receipt']);
+    }
+    public function getpigment()
+    {
+        return $this->hasOne(Pigment::className(),['id'=>'id_pigment']);
+    }
 }

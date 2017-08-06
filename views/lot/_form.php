@@ -15,7 +15,7 @@ use app\models\TicketReceipt;
 <div class="lot-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
+    <?= $form->errorSummary($model); ?>
     <?= $form->field($model, 'id_ticket_receipt')->dropDownList(
         ArrayHelper::map(TicketReceipt::getTicketsR(), 'id', 'code'),['prompt' => '--- Seleccione ---']); ?>
 
