@@ -18,7 +18,7 @@ class TruckSearch extends Truck
     public function rules()
     {
         return [
-            [['id', 'id_driver', 'created_by', 'modified_by'], 'integer'],
+            [['id', 'id_driver', 'id_status', 'created_by', 'modified_by'], 'integer'],
             [['licence_plate', 'created', 'modified'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class TruckSearch extends Truck
         $query->andFilterWhere([
             'id' => $this->id,
             'id_driver' => $this->id_driver,
+            'id_status' => $this->id_status,
             'created_by' => $this->created_by,
             'created' => $this->created,
             'modified_by' => $this->modified_by,

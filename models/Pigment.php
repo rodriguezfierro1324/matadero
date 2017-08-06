@@ -44,7 +44,7 @@ class Pigment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'description', 'destination', 'id_status'], 'required'],
+            [['name', 'destination', 'id_status'], 'required'],
             [['id_status', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name', 'destination'], 'string', 'max' => 50],

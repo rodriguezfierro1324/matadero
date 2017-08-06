@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Lot */
+/* @var $model app\models\Provider */
 
-$this->title = 'Create Lot';
-$this->params['breadcrumbs'][] = ['label' => 'Lots', 'url' => ['index']];
+$this->title = Yii::t('provider', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('provider', 'providers'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="lot-create">
+<div class="provider-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\LotSearch */
+/* @var $searchModel app\models\ProviderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Lots';
+$this->title = Yii::t('provider', 'providers');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="lot-index">
+<div class="provider-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Lot', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('provider', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,21 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'code',
-            'id_ticket_receipt',
-            'id_pigment',
-            'comments',
-            // 'id_status',
-            // 'quantity_chicken',
-            // 'counter_1',
-            // 'counter_2',
-            // 'total',
-            // 'type_chicken',
-            // 'quantity_discard',
-            // 'created',
+            'name',
+            'phone',
+            'contact_name',
+            'email:email',
+            // 'ci',
+            // 'quantity_cage',
+            // 'is_cage_own',
             // 'created_by',
-            // 'modified',
+            // 'created',
             // 'modified_by',
+            // 'modified',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

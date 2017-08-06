@@ -15,6 +15,7 @@ use app\models\Driver;
 <div class="ticket-receipt-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?= $form->errorSummary($model); ?>
 
     <?= $form->field($model, 'id_provider')->dropDownList(ArrayHelper::map(Provider::getProviders(),'id','name'),['prompt'=>'--Seleccione--']) ?>
 

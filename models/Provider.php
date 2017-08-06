@@ -84,6 +84,11 @@ class Provider extends \yii\db\ActiveRecord
 
     public function getProviders()
     {
-        return Provider::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
+        return Provider::find()->andWhere(['!=', 'id_status', 0])->all();
+    }
+
+    public function getOwnCageOptions()
+    {
+        return [0=>'Si',1=>'No'];
     }
 }

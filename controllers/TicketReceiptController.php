@@ -64,7 +64,7 @@ class TicketReceiptController extends Controller
     public function actionCreate()
     {
         $model = new TicketReceipt();
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

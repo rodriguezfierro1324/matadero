@@ -25,6 +25,9 @@ use yii\db\Expression;
  */
 class TicketDispatch extends \yii\db\ActiveRecord
 {
+    const STATUS_ENABLE=1;//estado activo
+    const STATUS_DISABLE=2;//estado desactivado
+    const STATUS_DELETED=0;//eliminido
     /**
      * @inheritdoc
      */
@@ -81,5 +84,9 @@ class TicketDispatch extends \yii\db\ActiveRecord
             'modified_by'   => Yii::t('ticket-dispatch', 'modified_by'),
             'modified'      => Yii::t('ticket-dispatch', 'modified'),
         ];
+    }
+    public function getCode()
+    {
+        return TicketDispatch::find()->where(['id_status'=>TicketDispatch::STATUS_ENABLE])->count();
     }
 }

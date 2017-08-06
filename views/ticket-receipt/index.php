@@ -24,10 +24,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_provider',
-            'id_truck',
-            'id_driver',
+            'code',
+            [
+                'attribute'=>'id_provider',
+                'value'=>'provider.name'
+            ],
+            [
+                'attribute'=>'id_truck',
+                'value'=>'truck.licence_plate'
+            ],
+            [
+                'attribute'=>'id_driver',
+                'value'=>'driver.NameComplete'
+            ],
             'quantity_chicken',
             // 'gross_weight',
             // 'tare_weight',
@@ -35,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'quantity_cage',
             // 'code',
             // 'created_by',
-            // 'created',
+             'created',
             // 'modified_by',
             // 'modified',
 

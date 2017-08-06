@@ -81,6 +81,6 @@ class Driver extends \yii\db\ActiveRecord
     }
     public function getDrivers()
     {
-        return Driver::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
+        return Driver::find()->andWhere(['!=', 'id_status', 0])->all();
     }
 }

@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\TypeChicken;
 use app\models\Pigment;
+use app\models\TicketReceipt;
 /* @var $this yii\web\View */
 /* @var $model app\models\Lot */
 /* @var $form yii\widgets\ActiveForm */
@@ -15,22 +16,14 @@ use app\models\Pigment;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_ticket_receipt')->dropDownList(
+        ArrayHelper::map(TicketReceipt::getTicketsR(), 'id', 'code'),['prompt' => '--- Seleccione ---']); ?>
 
-    <?= $form->field($model, 'id_ticket_receipt')->textInput() ?>
-
-    <!-- <?= $form->field($model, 'id_pigment')->textInput() ?> -->
-    <?= $form->field($model, 'id_pigment')
-     ->dropDownList(
-            ArrayHelper::map(Pigment::find()->asArray()->all(), 'id', 'name'),
-            ['prompt' => '--- Seleccione ---']
+    <?= $form->field($model, 'id_pigment')->dropDownList(
+              ArrayHelper::map(Pigment::find()->asArray()->all(), 'id', 'name'),['prompt' => '--- Seleccione ---']
     ) ?>
 
     <?= $form->field($model, 'comments')->textarea(['rows' => '6']) ?>
-
-    <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
-    <?= $form->field($model, 'id_status')->dropdownList(['1' => 'Activo', '2' => 'Inactivo'], ['prompt' => '--- Seleccione ---']) ?>
-
 
     <?= $form->field($model, 'quantity_chicken')->textInput() ?>
 
@@ -40,7 +33,6 @@ use app\models\Pigment;
 
     <?= $form->field($model, 'total')->textInput() ?> -->
 
-    <!-- <?= $form->field($model, 'type_chicken')->textInput() ?> -->
     <?= $form->field($model, 'type_chicken')
      ->dropDownList(
             ArrayHelper::map(TypeChicken::find()->asArray()->all(), 'id', 'name'),

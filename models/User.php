@@ -154,6 +154,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return (Yii::$app->getSecurity()->validatePassword($password, $this->pwd));
     }
 
+    public function getNameFull()
+    {
+        return $this->userName;
+    }
     public function getMenuItems()
     {
          
@@ -164,13 +168,15 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
                     ['label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']],
                     ['label'=>'','options'=>['class'=>'divider']],
                     ['label'=>Yii::t('ticket-dispatch','type-dispatchs'), 'url' => ['/ticket-dispatch/index']],
-                    ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],
-                    
+                    ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],                    
                 ]],
             ['label' => Yii::t('lot','lots'),
             'items'=>[
                     ['label'=>Yii::t('lot','lots'), 'url' => ['/lot/index']],
-                    ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']]
+                    ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']],
+                    ['label'=>'','options'=>['class'=>'divider']],
+                    ['label'=>Yii::t('pigment','create'), 'url' => ['/pigment/create']],
+
                 ]],
             ['label' => Yii::t('cage','cages'), 
                 'items'=>[
@@ -194,11 +200,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
                 ]],
             ['label' => Yii::t('truck','truck'),
                 'items'=>[
+                    ['label'=>Yii::t('driver','drivers'), 'url' => ['/driver/index']],
+                    ['label'=>Yii::t('driver','create'), 'url' => ['/driver/create']],
+                    ['label'=>'','options'=>['class'=>'divider']],
                     ['label'=>Yii::t('truck','trucks'), 'url' => ['/truck/index']],
                     ['label'=>Yii::t('truck','create'), 'url' => ['/truck/create']]
                 ]],
-            
-            
+            ['label' => Yii::t('provider','provider'),
+                'items'=>[
+                    ['label'=>Yii::t('provider','providers'), 'url' => ['/provider/index']],
+                    ['label'=>Yii::t('provider','create'), 'url' => ['/provider/create']]
+                ]],            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
