@@ -85,4 +85,5 @@ class Lot extends \yii\db\ActiveRecord
             'modified_by'       => Yii::t('lot', 'modified_by'),
         ];
     }
+    
 }

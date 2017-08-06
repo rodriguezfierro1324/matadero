@@ -176,6 +176,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
                     ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']],
                     ['label'=>'','options'=>['class'=>'divider']],
                     ['label'=>Yii::t('pigment','create'), 'url' => ['/pigment/create']],
+                    ['label'=>Yii::t('type-chicken','create'), 'url' => ['/type-chicken/create']],
 
                 ]],
             ['label' => Yii::t('cage','cages'), 

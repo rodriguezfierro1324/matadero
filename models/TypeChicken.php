@@ -48,6 +48,8 @@ class TypeChicken extends \yii\db\ActiveRecord
             [['created', 'modified'], 'safe'],
             [['name'], 'string', 'max' => 50],
             [['comments'], 'string', 'max' => 300],
+            [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            //[['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
 
