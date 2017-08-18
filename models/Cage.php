@@ -75,4 +75,10 @@ class Cage extends \yii\db\ActiveRecord
         $provider = Provider::find()->where(['id' => $id_provider])->One();
         return $provider->name;
     }
+    public function getprovider2()
+    {
+        // return Provider::find()->where(['id' => $id_provider])->One();
+        return $this->hasOne(Provider::className(),['id'=>'id_provider']);
+        
+    }
 }
