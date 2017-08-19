@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Discard */
 
-$this->title = 'Create Discard';
-$this->params['breadcrumbs'][] = ['label' => 'Discards', 'url' => ['index']];
+$this->title = Yii::t('discard', 'create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('discard', 'discards'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="discard-create">

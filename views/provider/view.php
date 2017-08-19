@@ -56,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]
         ],
     ]) ?>
+     <h1>Canastillos</h1>
     <?php
     /* Get all the articles for one author by using the author relation define in Articles */
     $dataProvider = new ActiveDataProvider([
