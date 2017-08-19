@@ -19,8 +19,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'destination')->textInput(['maxlength' => true]) ?>
 
     <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
-    <?=  $form->field($model, 'id_status')
-     ->dropDownList(array("1"=>"Activo","0"=>"Inactivo"),array('empty'=>'Select Value')); ?>
+   <!--  <?=  $form->field($model, 'id_status')
+     ->dropDownList(array("1"=>"Activo","0"=>"Inactivo"),array('empty'=>'Select Value')); ?> -->
 
 <!--     <?= $form->field($model, 'created')->textInput() ?>
 

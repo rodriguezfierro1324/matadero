@@ -31,12 +31,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_status',
             'quantity',
-            'id_provider',
+            [
+                'attribute'=>'id_provider',
+                'value'=>$model->provider->name
+            ],
             'operation',
-            'created',
-            'created_by',
-            'modified',
-            'modified_by',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
+            // 'modified_by',
+            [
+                'attribute'=>'modified_by',
+                'value'=>$model->modifiedby->username
+            ],
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
 

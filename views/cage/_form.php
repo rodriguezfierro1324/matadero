@@ -17,7 +17,7 @@ use app\models\Provider;
 
     <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
     <?=  $form->field($model, 'id_status')
-     ->dropDownList(array("1"=>"Activo","0"=>"Inactivo"),array('empty'=>'Select Value')); ?>
+     ->dropDownList(array("1"=>"Limpio","0"=>"Sucio"),array('empty'=>'Select Value')); ?>
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 

@@ -65,7 +65,7 @@ use app\models\Driver;
     <?= $form->field($model, 'modified')->textInput() ?> -->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('ticket_dispatch', 'create') : Yii::t('ticket_dispatch', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('ticket-dispatch', 'create') : Yii::t('ticket-dispatch', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

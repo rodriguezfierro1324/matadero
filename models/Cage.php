@@ -70,15 +70,21 @@ class Cage extends \yii\db\ActiveRecord
             'modified_by'   => Yii::t('cage', 'modified_by'),
         ];
     }
-    public function getProvider($id_provider)
+    // public function getProvider($id_provider)
+    // {
+    //     $provider = Provider::find()->where(['id' => $id_provider])->One();
+    //     return $provider->name;
+    // }
+    public function getProvider()
     {
-        $provider = Provider::find()->where(['id' => $id_provider])->One();
-        return $provider->name;
-    }
-    public function getprovider2()
-    {
-        // return Provider::find()->where(['id' => $id_provider])->One();
         return $this->hasOne(Provider::className(),['id'=>'id_provider']);
-        
+    }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
     }
 }

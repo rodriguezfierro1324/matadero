@@ -89,4 +89,20 @@ class TicketDispatch extends \yii\db\ActiveRecord
     {
         return TicketDispatch::find()->where(['id_status'=>TicketDispatch::STATUS_ENABLE])->count();
     }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
+    }
+    public function getTruck()
+    {
+        return $this->hasOne(Truck::className(),['id'=>'id_truck']);
+    }
+    public function getDriver()
+    {
+        return $this->hasOne(Driver::className(),['id'=>'id_driver']);
+    }
 }
