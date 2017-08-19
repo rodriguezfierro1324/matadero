@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
+use app\models\Cage;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Provider */
@@ -40,10 +43,77 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->is_cage_own==1?'Si':'No'
             ],
             'created_by',
-            'created',
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
             'modified_by',
-            'modified',
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
+    <?php
+    /* Get all the articles for one author by using the author relation define in Articles */
+    $dataProvider = new ActiveDataProvider([
+        'query' => Cage::find()->where(['id_provider'=>$model->id]),
+    ]);
+    $searchModel = "";
+    ?>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
+            // 'id',
+            // 'id_status',
+            [
+                'attribute'=>'id_status',
+                'value'=>function ($data) {
+                            switch ($data->id_status) {
+                                case 1:
+                                    return "Limpio";
+                                    break;
+                                default:
+                                    return "Sucio";
+                                    break;
+                            }
+                                // return $data->operation." ".$data->operation;
+                        }
+            ],
+            'quantity',
+            // 'id_provider',
+            // [
+            //     'attribute'=>'id_provider',
+            //     'value'=>'provider2.name'
+            // ],
+            // 'operation',
+            [
+                'attribute'=>'operation',
+                'value'=>function ($data) {
+                            switch ($data->operation) {
+                                case 1:
+                                case 2:
+                                case 3:
+                                    return "Entrada";
+                                    break;
+                                default:
+                                    return "Salida";
+                                    break;
+                            }
+                                // return $data->operation." ".$data->operation;
+                        }
+            ],
+            // 'created',
+            // 'created_by',
+            // 'modified',
+            // 'modified_by',
+
+            // ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>
