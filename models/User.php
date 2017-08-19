@@ -167,7 +167,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
                     ['label'=>Yii::t('ticket-receipt','ticket-receipts'), 'url' => ['/ticket-receipt/index']],
                     ['label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']],
                     ['label'=>'','options'=>['class'=>'divider']],
-                    ['label'=>Yii::t('ticket-dispatch','type-dispatchs'), 'url' => ['/ticket-dispatch/index']],
+                    ['label'=>Yii::t('ticket-dispatch','ticket-dispatchs'), 'url' => ['/ticket-dispatch/index']],
                     ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],                    
                 ]],
             ['label' => Yii::t('lot','lots'),

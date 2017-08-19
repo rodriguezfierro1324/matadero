@@ -42,13 +42,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'is_cage_own',
                 'value'=>$model->is_cage_own==1?'Si':'No'
             ],
-            'created_by',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
             // 'created',
             [
                 'attribute'=>'created',
                 'value'=>date('d-m-Y h:i:s', strtotime($model->created))
             ],
-            'modified_by',
+            // 'modified_by',
+            [
+                'attribute'=>'modified_by',
+                'value'=>$model->modifiedby->username
+            ],
             // 'modified',
             [
                 'attribute'=>'modified',

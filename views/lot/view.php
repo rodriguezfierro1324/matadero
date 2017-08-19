@@ -30,8 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'code',
-            'id_ticket_receipt',
-            'id_pigment',
+            // 'id_ticket_receipt',
+            [
+                'attribute'=>'id_ticket_receipt',
+                'value'=>$model->ticketR->code
+            ],
+            // 'id_pigment',
+            [
+                'attribute'=>'id_pigment',
+                'value'=>$model->pigment->name
+            ],
             'comments',
             'id_status',
             'quantity_chicken',
@@ -40,10 +48,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'total',
             'type_chicken',
             'quantity_discard',
-            'created',
-            'created_by',
-            'modified',
-            'modified_by',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
+            // 'modified_by',
+            [
+                'attribute'=>'modified_by',
+                'value'=>$model->modifiedby->username
+            ],
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
 

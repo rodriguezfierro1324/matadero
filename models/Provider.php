@@ -91,4 +91,12 @@ class Provider extends \yii\db\ActiveRecord
     {
         return [0=>'Si',1=>'No'];
     }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
+    }
 }

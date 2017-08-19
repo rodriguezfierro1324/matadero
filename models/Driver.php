@@ -83,4 +83,16 @@ class Driver extends \yii\db\ActiveRecord
     {
         return Driver::find()->andWhere(['!=', 'id_status', 0])->all();
     }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
+    }
+    public function getProvider()
+    {
+        return $this->hasOne(Provider::className(),['id'=>'id_provider']);
+    }
 }

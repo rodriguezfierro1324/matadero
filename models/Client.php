@@ -90,4 +90,12 @@ class Client extends \yii\db\ActiveRecord
         $status = ['1'=>'Activo', '2'=>'Inactivo'];  
         $this->render('_form', ['status'=>$status]);
     }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
+    }
 }
