@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Cage */
 
-$this->title = Yii::t('cage', 'create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cage', 'cages'), 'url' => ['index']];
+$this->title = 'Create Cage';
+$this->params['breadcrumbs'][] = ['label' => 'Cages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cage-create">

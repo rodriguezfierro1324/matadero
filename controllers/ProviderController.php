@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Provider;
+use app\models\Cages;
 use app\models\ProviderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
