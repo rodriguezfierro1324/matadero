@@ -25,9 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'id_lot',
+            // 'id_lot',
+            [
+                'attribute'=>'id_lot',
+                'value'=>'lot.code'
+            ],
             'quantity',
-            'id_client',
+            // 'id_client',
+            
+            [
+                'attribute'=>'id_client',
+                'value'=>'client.name'
+            ],
             'weight',
             // 'code',
             // 'type_chicken',

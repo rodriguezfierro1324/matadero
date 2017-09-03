@@ -105,4 +105,16 @@ class TicketDispatch extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Driver::className(),['id'=>'id_driver']);
     }
+    public function getLot()
+    {
+        return $this->hasOne(Lot::className(),['id'=>'id_lot']);
+    }
+    public function getTypechicken()
+    {
+        return $this->hasOne(TypeChicken::className(),['id'=>'type_chicken']);
+    }
+    public function getClient()
+    {
+        return $this->hasOne(Client::className(),['id'=>'id_client']);
+    }
 }

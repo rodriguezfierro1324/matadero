@@ -29,17 +29,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'id_lot',
-            'quantity',
-            'id_client',
-            'weight',
-            'code',
-            'type_chicken',
-            'cage',
+            // 'id_lot',
             [
-                'attribute'=>'id_truck',
+                'attribute'=>'id_lot',
                 'value'=>$model->truck->licence_plate
             ],
+            'quantity',
+            // 'id_client',
+            [
+                'attribute'=>'id_client',
+                'value'=>$model->client->name
+            ],
+            'weight',
+            'code',
+            // 'type_chicken',
+            [
+                'attribute'=>'type_chicken',
+                'value'=>$model->typechicken->name
+            ],
+            'cage',
+            // [
+            //     'attribute'=>'id_truck',
+            //     'value'=>$model->lot->id
+            // ],
             // 'id_driver',
             [
                 'attribute'=>'id_driver',
