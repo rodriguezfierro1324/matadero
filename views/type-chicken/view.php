@@ -31,10 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'comments',
-            'created_by',
-            'created',
-            'modified_by',
-            'modified',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
+            // 'modified_by',
+            [
+                'attribute'=>'modified_by',
+                'value'=>$model->modifiedby->username
+            ],
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
 

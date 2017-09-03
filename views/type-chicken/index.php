@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'comments',
-            'created_by',
-            'created',
+            // 'created_by',
+            // 'created',
             // 'modified_by',
             // 'modified',
 

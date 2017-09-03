@@ -8,6 +8,7 @@ use app\models\Client;
 use app\models\TypeChicken;
 use app\models\Truck;
 use app\models\Driver;
+use app\models\Lot;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketDispatch */
@@ -18,7 +19,12 @@ use app\models\Driver;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_lot')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_lot')->textInput() ?> -->
+    <?= $form->field($model, 'id_lot')
+     ->dropDownList(
+            ArrayHelper::map(Lot::find()->asArray()->all(), 'id', 'code'),
+            ['prompt' => '--- Seleccione ---']
+    ) ?>
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 
@@ -45,7 +51,7 @@ use app\models\Driver;
     <!-- <?= $form->field($model, 'id_truck')->textInput() ?> -->
     <?= $form->field($model, 'id_truck')
      ->dropDownList(
-            ArrayHelper::map(Truck::find()->asArray()->all(), 'id', 'name'),
+            ArrayHelper::map(Truck::find()->asArray()->all(), 'id', 'licence_plate'),
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
