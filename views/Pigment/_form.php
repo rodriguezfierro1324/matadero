@@ -18,18 +18,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'destination')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_status')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
+   <!--  <?=  $form->field($model, 'id_status')
+     ->dropDownList(array("1"=>"Activo","0"=>"Inactivo"),array('empty'=>'Select Value')); ?> -->
 
-    <?= $form->field($model, 'created')->textInput() ?>
+<!--     <?= $form->field($model, 'created')->textInput() ?>
 
     <?= $form->field($model, 'created_by')->textInput() ?>
 
     <?= $form->field($model, 'modified')->textInput() ?>
 
-    <?= $form->field($model, 'modified_by')->textInput() ?>
+    <?= $form->field($model, 'modified_by')->textInput() ?> -->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('pigment', 'create') : Yii::t('pigment', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

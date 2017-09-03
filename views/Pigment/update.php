@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Pigment */
 
-$this->title = 'Update Pigment: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Pigments', 'url' => ['index']];
+$this->title = Yii::t('pigment', 'update').': ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('pigment', 'pigments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('pigment', 'update');
 ?>
 <div class="pigment-update">
 
