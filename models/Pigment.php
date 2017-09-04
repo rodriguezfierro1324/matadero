@@ -71,4 +71,12 @@ class Pigment extends \yii\db\ActiveRecord
             'modified_by'   => Yii::t('pigment', 'modified_by'),
         ];
     }
+    public function getModifiedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'modified_by']);
+    }
+    public function getCreatedby()
+    {
+        return $this->hasOne(User::className(),['id'=>'created_by']);
+    }
 }
