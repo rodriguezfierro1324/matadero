@@ -42,10 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'comments',
             'id_status',
-            [
-                'attribute'=>'id_status',
-                'value'=>$model->estado
-            ],
+            // [
+            //     'attribute'=>'id_status',
+            //     'value'=>$model->estado
+            // ],
             'quantity_chicken',
             'counter_1',
             'counter_2',
