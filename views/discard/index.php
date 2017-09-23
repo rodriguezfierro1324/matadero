@@ -25,9 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'id_type_discard',
-            'weight',
-            'comments',
+            // 'id_type_discard',
+            [
+                'attribute'=>'id_type_discard',
+                'value'=>'typediscard.name'
+            ],
+            // 'weight',
+            [
+                'attribute'=>'weight',
+                'contentOptions' => ['class' => 'text-right'],
+                'format'=>['decimal',2]
+            ],
+            // 'comments',
             'id_status',
             // 'created',
             // 'created_by',

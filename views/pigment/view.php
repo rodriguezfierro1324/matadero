@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             'destination',
             'id_status',
+            // 'created_by',
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username

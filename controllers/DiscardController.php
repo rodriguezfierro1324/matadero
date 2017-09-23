@@ -64,7 +64,7 @@ class DiscardController extends Controller
     public function actionCreate()
     {
         $model = new Discard();
-
+        $model->id_status = 1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

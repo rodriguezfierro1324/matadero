@@ -31,47 +31,51 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'code',
-            // 'id_provider',
-            // 'id_provider',
             [
                 'attribute'=>'id_provider',
                 'value'=>$model->provider->name
             ],
-            // 'id_truck',
             [
                 'attribute'=>'id_truck',
                 'value'=>$model->truck->licence_plate
             ],
-            // 'id_driver',
             [
                 'attribute'=>'id_driver',
                 'value'=>$model->driver->name
             ],
             [
                 'attribute'=>'quantity_chicken',
-                'value'=>$model->TotalChickens
+                'value'=>$model->TotalChickens,
+                'format'=>['decimal',2]
             ],            
-            'gross_weight',
-            'tare_weight',
-            'net_weight',
-            'quantity_cage',
-            
-            // 'created_by',
+            [
+                'attribute'=>'gross_weight',
+                'format'=>['decimal',2]
+            ],
+            [
+                'attribute'=>'tare_weight',
+                'format'=>['decimal',2]
+            ],
+            [
+                'attribute'=>'net_weight',
+                'format'=>['decimal',2]
+            ],
+            [
+                'attribute'=>'quantity_cage'
+            ],
+            'code',
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username
             ],
-            // 'created',
             [
                 'attribute'=>'created',
                 'value'=>date('d-m-Y h:i:s', strtotime($model->created))
             ],
-            // 'modified_by',
             [
                 'attribute'=>'modified_by',
                 'value'=>$model->modifiedby->username
             ],
-            // 'modified',
             [
                 'attribute'=>'modified',
                 'value'=>date('d-m-Y h:i:s', strtotime($model->modified))

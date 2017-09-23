@@ -34,20 +34,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_lot',
                 'value'=>$model->truck->licence_plate
             ],
-            'quantity',
+            // 'quantity',
+            [
+                'attribute'=>'quantity',
+                // 'contentOptions' => ['class' => 'text-right']
+            ],
             // 'id_client',
             [
                 'attribute'=>'id_client',
                 'value'=>$model->client->name
             ],
-            'weight',
+            // 'weight',
+            [
+                'attribute'=>'weight',
+                'format'=>['decimal',2],
+                // 'contentOptions' => ['class' => 'text-right']
+            ],
             'code',
             // 'type_chicken',
             [
                 'attribute'=>'type_chicken',
                 'value'=>$model->typechicken->name
             ],
-            'cage',
+            // 'cage',
+            [
+                'attribute'=>'cage',
+                // 'contentOptions' => ['class' => 'text-right']
+            ],
             // [
             //     'attribute'=>'id_truck',
             //     'value'=>$model->lot->id

@@ -46,12 +46,25 @@ $this->params['breadcrumbs'][] = $this->title;
             //     'attribute'=>'id_status',
             //     'value'=>$model->estado
             // ],
-            'quantity_chicken',
-            'counter_1',
-            'counter_2',
-            'total',
-            'type_chicken',
-            'quantity_discard',
+            // 'quantity_chicken',
+            [
+                'attribute'=>'quantity_chicken'
+            ],
+            // 'counter_1',
+            // 'counter_2',
+            // 'total',
+            [
+                'attribute'=>'total'
+            ],
+            // 'type_chicken',
+            [
+                'attribute'=>'type_chicken',
+                'value'=>$model->typechicken->name
+            ],
+            // 'quantity_discard',
+            [
+                'attribute'=>'quantity_discard'
+            ],
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username

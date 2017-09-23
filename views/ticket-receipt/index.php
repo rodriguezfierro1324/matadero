@@ -54,14 +54,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_driver',
                 'value'=>'driver.NameComplete'
             ],
-            'quantity_chicken',
+            // 'quantity_chicken',
+            [
+                'attribute'=>'quantity_chicken',
+                'contentOptions' => ['class' => 'text-right']
+            ],
+
+
             // 'gross_weight',
             // 'tare_weight',
             // 'net_weight',
             // 'quantity_cage',
             // 'code',
             // 'created_by',
-             'created',
+             // 'created',
             // 'modified_by',
             // 'modified',
 
