@@ -30,10 +30,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'created',
             'created_by',
-            'modified',
+            // [
+            //     'attribute'=>'created_by',
+            //     'value'=>$model->created_by->username
+            // ],
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
             'modified_by',
+            // [
+            //     'attribute'=>'modified_by',
+            //     'value'=>$model->modifiedby->username
+            // ],
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
 

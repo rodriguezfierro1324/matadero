@@ -30,14 +30,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_lot',
                 'value'=>'lot.code'
             ],
-            'quantity',
+            // 'quantity',
+            [
+                'attribute'=>'quantity',
+                'contentOptions' => ['class' => 'text-right'],
+            ],
             // 'id_client',
             
             [
                 'attribute'=>'id_client',
                 'value'=>'client.name'
             ],
-            'weight',
+            // 'weight',
+            [
+                'attribute'=>'weight',
+                'format'=>['decimal',2],
+                'contentOptions' => ['class' => 'text-right'],
+            ],
             // 'code',
             // 'type_chicken',
             // 'cage',

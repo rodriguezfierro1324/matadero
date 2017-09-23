@@ -38,6 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_provider',
                 'value'=>$model->provider->name
             ],
+            // 'created_by',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
+            // 'created',
             [
                 'attribute'=>'created',
                 'value'=>date('d-m-Y h:i:s', strtotime($model->created))

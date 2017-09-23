@@ -36,7 +36,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'comments',
             // 'id_status',
-            'quantity_chicken',
+            // 'quantity_chicken',
+            [
+                'attribute'=>'quantity_chicken',
+                'contentOptions' => ['class' => 'text-right']
+            ],
             // 'counter_1',
             // 'counter_2',
             // 'total',

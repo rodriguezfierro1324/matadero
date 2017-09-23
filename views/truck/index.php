@@ -25,10 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'id_driver',
+            // 'id_driver',
+            [
+                'attribute'=>'id_driver',
+                'value'=>'driver.name'
+            ],
             'licence_plate:ntext',
             'id_status',
-            'created_by',
+            // 'created_by',
             // 'created',
             // 'modified_by',
             // 'modified',

@@ -26,8 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'id_status',
-            'quantity',
-            'id_provider',
+            // 'quantity',
+            [
+                'attribute'=>'quantity',
+                'contentOptions' => ['class' => 'text-right']
+            ],
+            // 'id_provider',
+            [
+                'attribute'=>'id_provider',
+                'value'=>'provider.name'
+            ],
             'operation',
             // 'created',
             // 'created_by',

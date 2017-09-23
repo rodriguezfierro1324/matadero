@@ -114,6 +114,10 @@ class Lot extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Pigment::className(),['id'=>'id_pigment']);
     }
+    public function gettypechicken()
+    {
+        return $this->hasOne(TypeChicken::className(),['id'=>'type_chicken']);
+    }
     public function getModifiedby()
     {
         return $this->hasOne(User::className(),['id'=>'modified_by']);

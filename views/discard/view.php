@@ -29,14 +29,38 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'id_type_discard',
-            'weight',
+            // 'id_type_discard',
+            [
+                'attribute'=>'id_type_discard',
+                'value'=>$model->typediscard->name
+            ],
+            // 'weight',
+            [
+                'attribute'=>'weight',
+                'format'=>['decimal',2]
+            ],
             'comments',
             'id_status',
-            'created',
-            'created_by',
-            'modified',
-            'modified_by',
+            // 'created_by',
+            [
+                'attribute'=>'created_by',
+                'value'=>$model->createdby->username
+            ],
+            // 'created',
+            [
+                'attribute'=>'created',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->created))
+            ],
+            // 'modified_by',
+            [
+                'attribute'=>'modified_by',
+                'value'=>$model->modifiedby->username
+            ],
+            // 'modified',
+            [
+                'attribute'=>'modified',
+                'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
+            ]
         ],
     ]) ?>
 

@@ -45,11 +45,34 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_driver',
                 'value'=>$model->driver->name
             ],
-            'quantity_chicken',
-            'gross_weight',
-            'tare_weight',
-            'net_weight',
-            'quantity_cage',
+            [
+                'attribute'=>'quantity_chicken',
+                // 'contentOptions' => ['class' => 'text-right']
+            ],
+            // 'quantity_chicken',
+            // 'gross_weight',
+            [
+                'attribute'=>'gross_weight',
+                // 'contentOptions' => ['class' => 'text-right'],
+                'format'=>['decimal',2]
+            ],
+            // 'tare_weight',
+            [
+                'attribute'=>'tare_weight',
+                // 'contentOptions' => ['class' => 'text-right'],
+                'format'=>['decimal',2]
+            ],
+            // 'net_weight',
+            [
+                'attribute'=>'net_weight',
+                // 'contentOptions' => ['class' => 'text-right'],
+                'format'=>['decimal',2]
+            ],
+            // 'quantity_cage',
+            [
+                'attribute'=>'quantity_cage',
+                // 'contentOptions' => ['class' => 'text-right'],
+            ],
             'code',
             // 'created_by',
             [
