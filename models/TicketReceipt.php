@@ -103,6 +103,18 @@ class TicketReceipt extends \yii\db\ActiveRecord
         return true;
     }
 
+    /**
+    * Total de pollos descontando lotes
+    **/
+
+    public function getTotalChickens()
+    {
+        $query = (new \yii\db\Query())->from('lot')
+            ->where(['id_ticket_receipt'=>$this->id,'id_status'=>TicketReceipt::STATUS_ENABLE]);
+        $sum = $query->sum('quantity_chicken');
+        return $this->quantity_chicken-$sum;
+    }
+
     public function getProvider()
     {
         return $this->hasOne(Provider::className(),['id'=>'id_provider']);

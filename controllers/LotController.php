@@ -61,16 +61,38 @@ class LotController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id=0)
     {
         $model = new Lot();
+        if($id!=0)
+            $model->id_ticket_receipt=$id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if(!Yii::$app->request->isAjax)
+                return $this->redirect(['view', 'id' => $model->id]);
+            else
+            {
+                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return [
+                    'success' => true,
+                    'data'=>Yii::t('lot','success')
+                ];
+            }
+        } 
+        else 
+        {
+            if(!Yii::$app->request->isAjax)
+            {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+            else
+            {
+                //Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return $this->renderAjax('_form_ajax', ['model' => $model]);
+            }
+            
         }
     }
 

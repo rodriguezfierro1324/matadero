@@ -5,6 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\TicketReceipt;
 use app\models\TicketReceiptSearch;
+use app\models\LotSearch;
+use app\models\Lot;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -40,7 +42,7 @@ class TicketReceiptController extends Controller
 
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
         ]);
     }
 
@@ -51,8 +53,15 @@ class TicketReceiptController extends Controller
      */
     public function actionView($id)
     {
+        $model=$this->findModel($id);
+        $lotSM = new LotSearch();
+        $lotSM->id_ticket_receipt=$model->id;
+        $dataProviderL = $lotSM->search(Yii::$app->request->queryParams);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'lotSM'=>$lotSM,
+            'dataProviderL'=>$dataProviderL
         ]);
     }
 
@@ -65,13 +74,32 @@ class TicketReceiptController extends Controller
     {
         $model = new TicketReceipt();
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if(!Yii::$app->request->isAjax)
+        {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
         }
+        else
+        {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return [
+                    'success' => true,
+                    'data'=>Yii::t('ticket-receipt','success')
+                ];
+            } 
+            else 
+            {
+                return $this->renderPartial('ajax', ['model' => $model]);
+            }
+        }
+
+        
     }
 
     /**

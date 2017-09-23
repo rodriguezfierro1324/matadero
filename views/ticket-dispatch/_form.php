@@ -22,7 +22,7 @@ use app\models\Lot;
     <!-- <?= $form->field($model, 'id_lot')->textInput() ?> -->
     <?= $form->field($model, 'id_lot')
      ->dropDownList(
-            ArrayHelper::map(Lot::find()->asArray()->all(), 'id', 'code'),
+            $model->lots4Dropdwon,
             ['prompt' => '--- Seleccione ---']
     ) ?>
 

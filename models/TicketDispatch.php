@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 /**
  * This is the model class for table "ticket_dispatch".
  *
@@ -116,5 +117,9 @@ class TicketDispatch extends \yii\db\ActiveRecord
     public function getClient()
     {
         return $this->hasOne(Client::className(),['id'=>'id_client']);
+    }
+    public function getLots4Dropdwon()
+    {
+        return ArrayHelper::map(Lot::find()->where(['id_status'=>Lot::STATUS_ENABLE])->all(), 'id', 'FullLot');
     }
 }

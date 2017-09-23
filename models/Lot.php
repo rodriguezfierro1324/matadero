@@ -129,4 +129,9 @@ class Lot extends \yii\db\ActiveRecord
             '2'  => 'Finalizado',
         ];
     }
+    public function getFullLot()
+    {
+        return $this->code.' - '.$this->ticketR->provider->name.' ['.$this->pigment->name.' - '.$this->quantity_chicken.']';
+    }
+    
 }

@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\TicketReceiptSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -14,13 +14,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php 
+        Modal::begin([
+            'header' => '<h2>'.Yii::t('ticket-receipt', 'create').'</h2>',
+            'id'=>'modal-ticket',
+            'toggleButton' => ['label' => Yii::t('ticket-receipt', 'create'),'class' => 'btn btn-success'],
+            'clientOptions'=>[
+                'remote'=>Yii::$app->urlManager->createUrl('ticket-receipt/create')
+            ]
+        ]);
+        Modal::end();
+    ?>
 
     <p>
-        <?= Html::a(Yii::t('ticket-receipt', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php //Html::a(Yii::t('ticket-receipt', 'create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <?php \yii\widgets\Pjax::begin(); 
+    $dataProvider->sort=['defaultOrder' => [
+        'code'=>SORT_DESC
+    ]];
+    ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'id'=>'grid-tickets',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -52,3 +69,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+<?php \yii\widgets\Pjax::end(); ?>
