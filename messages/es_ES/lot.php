@@ -6,6 +6,7 @@ return [
 	'create'=>'Crear Lote',
     'update'=>'Actualizar Lote',
     'delete'=>'Eliminar Lote',
+    'update_quantity'=>'Actualizar Cantidad',
 
     'delete_confirm'=>'¿Está seguro que desea eliminar a este lote?',
 

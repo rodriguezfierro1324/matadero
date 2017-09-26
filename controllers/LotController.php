@@ -64,19 +64,27 @@ class LotController extends Controller
     public function actionCreate($id=0)
     {
         $model = new Lot();
+
         if($id!=0)
             $model->id_ticket_receipt=$id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if(!Yii::$app->request->isAjax)
-                return $this->redirect(['view', 'id' => $model->id]);
-            else
-            {
-                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-                return [
-                    'success' => true,
-                    'data'=>Yii::t('lot','success')
-                ];
+        if ($model->load(Yii::$app->request->post())) {
+            // echo $model->quantity_chicken;die();
+            $model->counter_1   = $model->quantity_chicken;
+            $model->counter_2   = $model->quantity_chicken;
+            $model->total       = $model->quantity_chicken;
+            $model->quantity_discard = 0;
+            if ($model->save()) {
+                if(!Yii::$app->request->isAjax)
+                    return $this->redirect(['view', 'id' => $model->id]);
+                else
+                {
+                    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                    return [
+                        'success' => true,
+                        'data'=>Yii::t('lot','success')
+                    ];
+                }
             }
         } 
         else 
@@ -104,17 +112,25 @@ class LotController extends Controller
      */
     public function actionUpdate($id)
     {
+        
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $hidden1 = Yii::$app->request->post('hidden1');
+            // echo $model->counter_1;die();
+            if($model->counter_1 > 0){
+                $model->counter_2   = $model->counter_1;
+                $model->total       = $model->counter_1;    
+            }
+           if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,
             ]);
         }
     }
-
     /**
      * Deletes an existing Lot model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
