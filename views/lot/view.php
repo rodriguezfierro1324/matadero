@@ -6,8 +6,9 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Lot */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('lot', 'lots'), 'url' => ['index']];
+$this->title = yii::t('lot','lot').' - '.$model->code;
+$this->params['breadcrumbs'][] = ['label' => yii::t('provider','provider').' - '.$model->ticketR->provider->name, 'url' => ['provider/view','id'=>$model->ticketR->id_provider]];
+$this->params['breadcrumbs'][] = ['label' => yii::t('ticket-receipt','ticket-receipt').' - '.$model->ticketR->code, 'url' => ['ticket-receipt/view','id'=>$model->id_ticket_receipt]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lot-view">
@@ -28,8 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'code',
+            [
+                'attribute'=>'Proveedor',
+                'value'=>$model->ticketR->provider->name
+            ],
             // 'id_ticket_receipt',
             [
                 'attribute'=>'id_ticket_receipt',
@@ -41,7 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->pigment->name
             ],
             'comments',
-            'id_status',
+            [
+                'attribute'=>'id_status',
+                'value'=>$model->stado
+            ],
             // [
             //     'attribute'=>'id_status',
             //     'value'=>$model->estado

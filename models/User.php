@@ -158,7 +158,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->userName;
     }
-    public function getMenuItems()
+    public static function getMenuItems()
     {
          // echo Yii::$app->user->identity->username;
          // die();

@@ -71,7 +71,7 @@ class Truck extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getTrucks()
+    public static function getTrucks()
     {
         return Truck::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
     }

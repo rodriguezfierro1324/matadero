@@ -6,6 +6,7 @@ return [
 	'create'=>'Crear Ticket de recepción',
     'update'=>'Actualizar Tipo de Ticket de recepción',
     'delete'=>'Eliminar Tipo de Ticket de recepción',
+    'success'=>'El ticket fué creado exitosamente.',
 
     'delete_confirm'=>'¿Está seguro que desea eliminar a este tipo de Ticket de recepción?',
 

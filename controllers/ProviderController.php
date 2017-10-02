@@ -39,6 +39,7 @@ class ProviderController extends Controller
         $searchModel = new ProviderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        //$dataPProvider
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

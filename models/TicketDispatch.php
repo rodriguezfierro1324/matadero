@@ -54,7 +54,7 @@ class TicketDispatch extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_lot', 'quantity', 'id_client', 'weight', 'code', 'type_chicken', 'cage', 'id_truck', 'id_driver'], 'required'],
+            [['id_lot', 'quantity', 'id_client', 'weight', 'type_chicken', 'cage', 'id_truck', 'id_driver'], 'required'],
             [['id_lot', 'quantity', 'id_client', 'type_chicken', 'cage', 'id_truck', 'id_driver', 'created_by', 'modified_by'], 'integer'],
             [['weight'], 'number'],
             [['created', 'modified'], 'safe'],
@@ -71,6 +71,7 @@ class TicketDispatch extends \yii\db\ActiveRecord
     {
         return [
             'id'            => Yii::t('ticket-dispatch', 'id'),
+            'id_provider'   =>Yii::t('ticket-dispatch', 'id_provider'),
             'id_lot'        => Yii::t('ticket-dispatch', 'id_lot'),
             'quantity'      => Yii::t('ticket-dispatch', 'quantity'),
             'id_client'     => Yii::t('ticket-dispatch', 'id_client'),
@@ -88,8 +89,27 @@ class TicketDispatch extends \yii\db\ActiveRecord
     }
     public function getCode()
     {
-        return TicketDispatch::find()->where(['id_status'=>TicketDispatch::STATUS_ENABLE])->count();
+        $total = TicketDispatch::find()->where(['id_status'=>TicketDispatch::STATUS_ENABLE])->count();
+        $total++;
+        $this->code=sprintf("TD-%06d", $total);
     }
+
+    public function beforeSave($insert)
+    {    
+        $connection = \Yii::$app->db;
+        $tmp = $connection->createCommand("SELECT id_provider FROM `ticket_receipt` tr INNER JOIN lot ON tr.id=lot.id_ticket_receipt WHERE lot.id=".$this->id_lot);
+        $provider = $tmp->queryOne();
+        //print_r($provider['id_provider']);
+        $this->id_provider=$provider['id_provider'];
+
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+
+        $this->getCode();
+        return true;
+    }
+
     public function getModifiedby()
     {
         return $this->hasOne(User::className(),['id'=>'modified_by']);

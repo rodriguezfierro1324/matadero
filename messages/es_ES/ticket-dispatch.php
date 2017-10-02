@@ -20,6 +20,7 @@ return [
     'type_chicken'  => 'Tipo de Pollo',
     'cage'          => 'Jaulas',
     'id_truck'      => 'Camion',
+    'id_provider'   =>  'Proveedor',
     'id_driver'     => 'Conductor',
 
     'id'            => 'ID',
