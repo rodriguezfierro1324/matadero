@@ -7,7 +7,7 @@ return [
     'update'=>'Actualizar Lote',
     'delete'=>'Eliminar Lote',
     'success'=>'El lote fué creado exitosamente',
-
+    'update_quantity'=>'Actualizar Cantidad',
     'delete_confirm'=>'¿Está seguro que desea eliminar a este lote?',
 
     'search'=>'Buscar',

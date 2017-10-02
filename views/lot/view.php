@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\Modal;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Lot */
@@ -24,6 +26,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?php 
+            Modal::begin([
+                'header' => '<h2>'.Yii::t('lot', 'update_quantity').'</h2>',
+                'toggleButton' =>  ['label' => Yii::t('lot', 'update_quantity'),'class' => 'btn btn-success'],
+            ]);
+            ?>
+            <div class="modal-body">
+                <div class="form-group">
+                <?php 
+                    $form = ActiveForm::begin([
+                    'id' => 'lot-form-quantity',
+                    'action'=>Yii::$app->urlManager->createUrl(["lot/update","id"=>$model->id])
+                    ]); 
+                ?>
+                <?= $form->errorSummary($model); ?>
+                    <?= $form->field($model, 'counter_1')->textInput() ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <?= Html::submitButton($model->isNewRecord ? Yii::t('lot', 'create') : Yii::t('lot', 'update'), ['id'=>'submit-quantity','class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
+                </div>
+                <?php ActiveForm::end(); ?>
+            </div>
+        <?php
+            Modal::end();
+        ?>
     </p>
 
     <?= DetailView::widget([

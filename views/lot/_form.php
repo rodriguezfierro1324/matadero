@@ -39,7 +39,7 @@ use app\models\TicketReceipt;
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
-    <?= $form->field($model, 'quantity_discard')->textInput() ?>
+    <!-- <?= $form->field($model, 'quantity_discard')->textInput() ?> -->
 
 <!--     <?= $form->field($model, 'created')->textInput() ?>
 
