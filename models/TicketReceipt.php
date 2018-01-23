@@ -127,7 +127,7 @@ class TicketReceipt extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Driver::className(),['id'=>'id_driver']);
     }
-    public function getTicketsR()
+    public static function getTicketsR()
     {
         return TicketReceipt::find()->andWhere(['!=', 'id_status', 0])->asArray()->all();
     }

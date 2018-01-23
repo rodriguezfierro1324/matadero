@@ -33,16 +33,6 @@ use app\models\Driver;
 
     <?= $form->field($model, 'quantity_cage')->textInput() ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
-
-   <!--  <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'created')->textInput() ?>
-
-    <?= $form->field($model, 'modified_by')->textInput() ?>
-
-    <?= $form->field($model, 'modified')->textInput() ?> -->
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('ticket-receipt', 'create') : Yii::t('ticket-receipt', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

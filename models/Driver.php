@@ -79,7 +79,7 @@ class Driver extends \yii\db\ActiveRecord
     {
         return $this->name.', '.$this->last_name;
     }
-    public function getDrivers()
+    public static function getDrivers()
     {
         return Driver::find()->andWhere(['!=', 'id_status', 0])->all();
     }

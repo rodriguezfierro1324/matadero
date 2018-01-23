@@ -27,7 +27,7 @@ use yii\db\Expression;
  */
 class Lot extends \yii\db\ActiveRecord
 {
-    const STATUS_DELETED=0;//eliminido
+    const STATUS_DELETED=0;//eliminado
     const STATUS_ENABLE=1;//estado activo
     const STATUS_DISABLE=2;//estado desactivado
     public $hidden1;
@@ -138,6 +138,13 @@ class Lot extends \yii\db\ActiveRecord
     public function getFullLot()
     {
         return $this->code.' - '.$this->ticketR->provider->name.' ['.$this->pigment->name.' - '.$this->quantity_chicken.']';
+    }
+    public function getStado()
+    {
+        if($this->id_status==$this::STATUS_ENABLE)
+            return 'Activo';
+        elseif($this->id_status==$this::STATUS_DISABLE)
+            return "Inactivo";
     }
     
 }

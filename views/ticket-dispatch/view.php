@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketDispatch */
 
-$this->title = $model->id;
+$this->title = Yii::t('ticket-dispatch','ticket-dispatch').' - '.$model->code;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('ticket-dispatch', 'ticket-dispatchs'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            'code',
+            'id_provider',
             // 'id_lot',
             [
                 'attribute'=>'id_lot',
@@ -50,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'=>['decimal',2],
                 // 'contentOptions' => ['class' => 'text-right']
             ],
-            'code',
+            
             // 'type_chicken',
             [
                 'attribute'=>'type_chicken',

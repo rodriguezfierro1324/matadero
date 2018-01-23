@@ -5,6 +5,9 @@ use yii\widgets\DetailView;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 use app\models\Cage;
+use yii\bootstrap\Tabs;
+use app\models\TicketReceipt;
+use app\models\TicketDispatch;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Provider */
@@ -28,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?php 
+    $detaills=DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
@@ -63,23 +67,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>date('d-m-Y h:i:s', strtotime($model->modified))
             ]
         ],
-    ]) ?>
-     <h1>Canastillos</h1>
-    <?php
-    /* Get all the articles for one author by using the author relation define in Articles */
+    ]) ;
+
+    /*********************************canastillos*************************************************/
+    unset($dataProvider);
     $dataProvider = new ActiveDataProvider([
         'query' => Cage::find()->where(['id_provider'=>$model->id]),
     ]);
     $searchModel = "";
-    ?>
-    <?= GridView::widget([
+    $canastillo=GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            // 'id',
-            // 'id_status',
             [
                 'attribute'=>'id_status',
                 'value'=>function ($data) {
@@ -91,16 +91,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     return "Sucio";
                                     break;
                             }
-                                // return $data->operation." ".$data->operation;
                         }
             ],
             'quantity',
-            // 'id_provider',
-            // [
-            //     'attribute'=>'id_provider',
-            //     'value'=>'provider2.name'
-            // ],
-            // 'operation',
             [
                 'attribute'=>'operation',
                 'value'=>function ($data) {
@@ -114,15 +107,112 @@ $this->params['breadcrumbs'][] = $this->title;
                                     return "Salida";
                                     break;
                             }
-                                // return $data->operation." ".$data->operation;
                         }
             ],
-            // 'created',
-            // 'created_by',
-            // 'modified',
-            // 'modified_by',
-
-            // ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    /******************************************************************************************************************************************************/
+    //pollos
+    $dataProvider = new ActiveDataProvider([
+        'query' => TicketReceipt::find()->where(['id_provider'=>$model->id]),
+    ]);
+    
+    $preceipt=GridView::widget([
+        'dataProvider' => $dataProvider,
+        //'filterModel' => $searchModel,
+        'id'=>'grid-tickets',
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'code',
+            [
+                'attribute'=>'id_truck',
+                'value'=>'truck.licence_plate'
+            ],
+            [
+                'attribute'=>'id_driver',
+                'value'=>'driver.NameComplete'
+            ],
+            // 'quantity_chicken',
+            [
+                'attribute'=>'quantity_chicken',
+                'contentOptions' => ['class' => 'text-right']
+            ],
+             'gross_weight',
+             'tare_weight',
+             'net_weight',
+            // 'quantity_cage',
+            // 'code',
+            // 'created_by',
+            'created',
+            // 'modified_by',
+            // 'modified',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); 
+
+     $dataProvider = new ActiveDataProvider([
+        'query' => TicketDispatch::find()->where(['id_provider'=>$model->id]),
+    ]);
+    
+    $pdispatch=GridView::widget([
+        'dataProvider' => $dataProvider,
+        //'filterModel' => $searchModel,
+        'id'=>'grid-tickets',
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'code',
+            [
+                'attribute'=>'id_truck',
+                'value'=>'truck.licence_plate'
+            ],
+            [
+                'attribute'=>'id_driver',
+                'value'=>'driver.NameComplete'
+            ],
+            [
+                'attribute'=>'id_client',
+                'value'=>'client.name'
+            ],
+            // 'quantity_chicken',
+            [
+                'attribute'=>'quantity',
+                'contentOptions' => ['class' => 'text-right']
+            ],
+            'created'
+
+            //['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); 
+    ?>
+    <?=Tabs::widget([
+    'items' => [
+        [
+            'label' => 'Detalle de proveedor',
+            'content' => $detaills,
+            'active' => true
+        ],
+        [
+            'label' => 'Recepción de pollo',
+            'content' => $preceipt,
+            'options' => ['id' => 'myveryownID'],
+        ],
+        [
+            'label'=>'Despacho de pollo',
+            'content'=>$pdispatch
+        ],
+        [
+            'label' => 'Canastillos',
+            'content' => $canastillo,
+        ],
+
+    ]])?>
+
+    
+    
+    <?php
+    /* Get all the articles for one author by using the author relation define in Articles */
+    
+    ?>
+    <? ?>
 </div>

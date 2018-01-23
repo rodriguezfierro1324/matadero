@@ -83,7 +83,7 @@ class Provider extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getProviders()
+    public static function getProviders()
     {
         return Provider::find()->andWhere(['!=', 'id_status', 0])->all();
     }

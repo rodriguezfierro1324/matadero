@@ -18,33 +18,31 @@ use app\models\Lot;
 <div class="ticket-dispatch-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?= $form->errorSummary($model); ?>
 
-    <!-- <?= $form->field($model, 'id_lot')->textInput() ?> -->
     <?= $form->field($model, 'id_lot')
      ->dropDownList(
             $model->lots4Dropdwon,
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
-    <?= $form->field($model, 'quantity')->textInput() ?>
+    <?= $form->field($model, 'type_chicken')
+     ->dropDownList(
+            ArrayHelper::map(TypeChicken::find()->asArray()->all(), 'id', 'name'),
+            ['prompt' => '--- Seleccione ---']
+    ) ?>
 
-    <!-- <?= $form->field($model, 'id_client')->textInput() ?> -->
     <?= $form->field($model, 'id_client')
      ->dropDownList(
             ArrayHelper::map(Client::find()->asArray()->all(), 'id', 'name'),
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
+    <?= $form->field($model, 'quantity')->textInput() ?>
+
+
     <?= $form->field($model, 'weight')->textInput() ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
-
-    <!-- <?= $form->field($model, 'type_chicken')->textInput() ?> -->
-    <?= $form->field($model, 'type_chicken')
-     ->dropDownList(
-            ArrayHelper::map(TypeChicken::find()->asArray()->all(), 'id', 'name'),
-            ['prompt' => '--- Seleccione ---']
-    ) ?>
 
     <?= $form->field($model, 'cage')->textInput() ?>
 
@@ -55,20 +53,12 @@ use app\models\Lot;
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
-    <!-- <?= $form->field($model, 'id_driver')->textInput() ?> -->
     <?= $form->field($model, 'id_driver')
      ->dropDownList(
             ArrayHelper::map(Driver::find()->asArray()->all(), 'id', 'name'),
             ['prompt' => '--- Seleccione ---']
     ) ?>
 
-<!--     <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'created')->textInput() ?>
-
-    <?= $form->field($model, 'modified_by')->textInput() ?>
-
-    <?= $form->field($model, 'modified')->textInput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('ticket-dispatch', 'create') : Yii::t('ticket-dispatch', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

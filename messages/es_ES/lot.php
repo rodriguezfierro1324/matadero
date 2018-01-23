@@ -6,8 +6,8 @@ return [
 	'create'=>'Crear Lote',
     'update'=>'Actualizar Lote',
     'delete'=>'Eliminar Lote',
+    'success'=>'El lote fué creado exitosamente',
     'update_quantity'=>'Actualizar Cantidad',
-
     'delete_confirm'=>'¿Está seguro que desea eliminar a este lote?',
 
     'search'=>'Buscar',
@@ -19,9 +19,9 @@ return [
     'comments'          => 'Comentarios',
     'id_status'         => 'Estado',
     'quantity_chicken'  => 'Cant. Pollo',
-    'counter_1'         => 'Contador 1',
-    'counter_2'         => 'Contador 2',
-    'total'             => 'Total',
+    'counter_1'         => 'Conteo pigmentación',
+    'counter_2'         => 'Conteo corte de patas',
+    'total'             => 'Total (contabilizado)',
     'type_chicken'      => 'Tipo de Pollo',
     'quantity_discard'  => 'Cant. Descarte',
     
