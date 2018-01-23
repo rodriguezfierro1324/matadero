@@ -163,7 +163,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
          // echo Yii::$app->user->identity->username;
          // die();
         $user_rol = Yii::$app->user->identity->username;
-
+        //$user_rol = "admin";
          switch ($user_rol){
             case 'admin':
                 return [
@@ -199,11 +199,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
                             ['label'=>Yii::t('client','clients'), 'url' => ['/client/index']],
                             ['label'=>Yii::t('client','create'), 'url' => ['/client/create']]
                         ]],
-                    ['label' => Yii::t('discard','discard'),
-                        'items'=>[
-                            ['label'=>Yii::t('discard','discards'), 'url' => ['/discard/index']],
-                            ['label'=>Yii::t('discard','create'), 'url' => ['/discard/create']]
-                        ]],
+                    // ['label' => Yii::t('discard','discard'),
+                    //     'items'=>[
+                    //         ['label'=>Yii::t('discard','discards'), 'url' => ['/discard/index']],
+                    //         ['label'=>Yii::t('discard','create'), 'url' => ['/discard/create']]
+                    //     ]],
                     ['label' => Yii::t('truck','truck'),
                         'items'=>[
                             ['label'=>Yii::t('driver','drivers'), 'url' => ['/driver/index']],

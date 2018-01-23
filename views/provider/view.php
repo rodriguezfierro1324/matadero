@@ -42,6 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'is_cage_own',
                 'value'=>$model->is_cage_own==1?'Si':'No'
             ],
+            'observaciones',
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username

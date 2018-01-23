@@ -26,6 +26,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_cage_own')->radioList($model->OwnCageOptions) ?>
 
+    <?= $form->field($model, 'observaciones')->textArea(['rows' => 6]) ?>
+
     <!-- <?= $form->field($model, 'created_by')->textInput() ?>
 
     <?= $form->field($model, 'created')->textInput() ?>

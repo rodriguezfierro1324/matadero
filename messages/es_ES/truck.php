@@ -16,6 +16,7 @@ return [
     'id_driver'     => 'Conductor',
     'id_status'     => 'Estado',
     'licence_plate' => 'Nro de Placa',
+    'observaciones' => 'Observaciones',
     
     'id' => 'ID',
     'created' => 'Fecha de creación',

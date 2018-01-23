@@ -18,7 +18,7 @@ use app\models\Driver;
 
     <?= $form->field($model, 'licence_plate')->textInput(['rows' => 6]) ?>
 
-    
+    <?= $form->field($model, 'observaciones')->textArea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('truck', 'Create') : Yii::t('truck', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

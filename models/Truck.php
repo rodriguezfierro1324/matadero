@@ -44,7 +44,7 @@ class Truck extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_driver', 'licence_plate'], 'required'],
+            [['id_driver', 'licence_plate', 'observaciones'], 'required'],
             [['id_driver', 'created_by', 'modified_by'], 'integer'],
             [['licence_plate'], 'string'],
             [['created', 'modified'], 'safe'],
@@ -62,6 +62,7 @@ class Truck extends \yii\db\ActiveRecord
             'id'            => Yii::t('truck', 'id'),
             'id_driver'     => Yii::t('truck', 'id_driver'),
             'licence_plate' => Yii::t('truck', 'licence_plate'),
+            'observaciones' => Yii::t('truck', 'observaciones'),
             'id_status'     => Yii::t('truck', 'id_status'),
             'created'       => Yii::t('truck', 'created'),
             'created_by'    => Yii::t('truck', 'created_by'),

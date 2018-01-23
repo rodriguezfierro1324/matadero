@@ -17,6 +17,8 @@ return [
     'phone'         => 'Teléfono',
     'ci'            => 'CI',
     'contact_name'  => 'Contacto',
+    'email'         => 'Correo Electrónico',
+    'mercado'       => 'Mercado',
     
     'id' => 'ID',
     'created' => 'Fecha de creación',

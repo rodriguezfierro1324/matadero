@@ -29,6 +29,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
+    $user = new User();
     NavBar::begin([
         'brandLabel' => 'Viloma',
         'brandUrl' => Yii::$app->homeUrl,
@@ -40,7 +41,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'activateParents' => true,
         'items' => 
-            User::getMenuItems()
+            $user->getMenuItems()
+            // User::getMenuItems()
             /*['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],

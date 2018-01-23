@@ -64,8 +64,10 @@ class ClientController extends Controller
     public function actionCreate()
     {
         $model = new Client();
+        $model->load(Yii::$app->request->post());
+        $model->id_status = 1;
+        if ($model->save()) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

@@ -1,13 +1,13 @@
 <?php
 return [
-    'provider'=>'Proveedor',
-	'providers'=>'Proveedores',
+    'provider'=>'Granjero',
+	'providers'=>'Granjeros',
 
-	'create'=>'Crear Proveedor',
-    'update'=>'Actualizar Proveedor',
-    'delete'=>'Eliminar Proveedor',
+	'create'=>'Crear Granjero',
+    'update'=>'Actualizar Granjero',
+    'delete'=>'Eliminar Granjero',
 
-    'delete_confirm'=>'¿Está seguro que desea eliminar a este proveedor?',
+    'delete_confirm'=>'¿Está seguro que desea eliminar a este granjero?',
 
     'search'=>'Buscar',
     'reset'=>'Resetear',
@@ -20,6 +20,7 @@ return [
     'quantity_cage' => 'Nro de Canastillos',
     'is_cage_own'   => 'Canastillos Propios',
     'id_status'     => 'Estado',
+    'observaciones' => 'Observaciones',
     
     'id' => 'ID',
     'created' => 'Fecha de creación',

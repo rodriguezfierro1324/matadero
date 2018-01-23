@@ -14,13 +14,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_status')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_status')->textInput() ?> -->
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ci')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'contact_name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'mercado')->textInput(['maxlength' => true]) ?>
 
 <!--     <?= $form->field($model, 'created')->textInput() ?>
 

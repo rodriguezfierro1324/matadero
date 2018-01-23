@@ -34,6 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'ci',
             'contact_name',
+            'email',
+            'mercado',
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username

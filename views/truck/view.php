@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->driver->name
             ],
             'licence_plate:ntext',
+            'observaciones',
             'id_status',
             [
                 'attribute'=>'created_by',

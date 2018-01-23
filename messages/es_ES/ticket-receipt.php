@@ -12,7 +12,7 @@ return [
     'search'=>'Buscar',
     'reset'=>'Resetear',
     
-    'id_provider'       => 'Proveedor',
+    'id_provider'       => 'Granjero',
     'id_truck'          => 'Camion',
     'id_driver'         => 'Conductor',
     'quantity_chicken'  => 'Cantidad de Pollos',

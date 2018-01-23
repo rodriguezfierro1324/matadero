@@ -47,7 +47,7 @@ class Provider extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'contact_name', 'email', 'ci', 'quantity_cage', 'is_cage_own'], 'required'],
+            [['name', 'phone', 'contact_name', 'email', 'ci', 'quantity_cage', 'is_cage_own', 'observaciones'], 'required'],
             [['quantity_cage', 'is_cage_own', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             [['name'], 'string', 'max' => 150],
@@ -75,6 +75,7 @@ class Provider extends \yii\db\ActiveRecord
             'id_status'     => Yii::t('provider', 'id_status'),
             'quantity_cage' => Yii::t('provider', 'quantity_cage'),
             'is_cage_own'   => Yii::t('provider', 'is_cage_own'),
+            'observaciones'   => Yii::t('provider', 'observaciones'),
             'created'       => Yii::t('provider', 'created'),
             'created_by'    => Yii::t('provider', 'created_by'),
             'modified'      => Yii::t('provider', 'modified'),

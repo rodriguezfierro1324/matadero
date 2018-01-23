@@ -46,9 +46,10 @@ class Client extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'id_status', 'phone', 'ci', 'contact_name'], 'required'],
+            [['name', 'id_status', 'phone', 'ci', 'contact_name','email','mercado'], 'required'],
             [['id_status', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
+            ['email','email'],
             [['name', 'phone'], 'string', 'max' => 50],
             [['ci'], 'string', 'max' => 15],
             [['contact_name'], 'string', 'max' => 150],
@@ -69,6 +70,8 @@ class Client extends \yii\db\ActiveRecord
             'phone'         => Yii::t('client', 'phone'),
             'ci'            => Yii::t('client', 'ci'),
             'contact_name'  => Yii::t('client', 'contact_name'),
+            'email'  => Yii::t('client', 'email'),
+            'mercado'  => Yii::t('client', 'mercado'),
             'created'       => Yii::t('client', 'created'),
             'created_by'    => Yii::t('client', 'created_by'),
             'modified'      => Yii::t('client', 'modified'),
