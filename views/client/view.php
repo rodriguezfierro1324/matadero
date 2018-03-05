@@ -36,6 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'contact_name',
             'email',
             'mercado',
+            'canastillo_sigla',
+            'canastillo_estado',
+            'canastillo_color',
             [
                 'attribute'=>'created_by',
                 'value'=>$model->createdby->username

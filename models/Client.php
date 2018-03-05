@@ -46,7 +46,7 @@ class Client extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'id_status', 'phone', 'ci', 'contact_name','email','mercado'], 'required'],
+            [['name', 'id_status', 'phone', 'ci', 'contact_name','email','mercado','canastillo_sigla','canastillo_estado','canastillo_color'], 'required'],
             [['id_status', 'created_by', 'modified_by'], 'integer'],
             [['created', 'modified'], 'safe'],
             ['email','email'],
@@ -54,6 +54,7 @@ class Client extends \yii\db\ActiveRecord
             [['ci'], 'string', 'max' => 15],
             [['contact_name'], 'string', 'max' => 150],
             [['created_by', 'modified_by'], 'default','value' => Yii::$app->user->identity->id ],
+            //[['created_by', 'modified_by'], 'default','value' => 1 ],
             [['id_status'], 'default', 'value' => 1] //siempre ON
         ];
     }
@@ -70,8 +71,11 @@ class Client extends \yii\db\ActiveRecord
             'phone'         => Yii::t('client', 'phone'),
             'ci'            => Yii::t('client', 'ci'),
             'contact_name'  => Yii::t('client', 'contact_name'),
-            'email'  => Yii::t('client', 'email'),
-            'mercado'  => Yii::t('client', 'mercado'),
+            'email'         => Yii::t('client', 'email'),
+            'mercado'       => Yii::t('client', 'mercado'),
+            'canastillo_sigla'      => Yii::t('client', 'canastillo_sigla'),
+            'canastillo_estado'     => Yii::t('client', 'canastillo_estado'),
+            'canastillo_color'      => Yii::t('client', 'canastillo_color'),
             'created'       => Yii::t('client', 'created'),
             'created_by'    => Yii::t('client', 'created_by'),
             'modified'      => Yii::t('client', 'modified'),

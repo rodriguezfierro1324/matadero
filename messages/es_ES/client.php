@@ -19,6 +19,9 @@ return [
     'contact_name'  => 'Contacto',
     'email'         => 'Correo Electrónico',
     'mercado'       => 'Mercado',
+    'canastillo_sigla'       => 'Sigla',
+    'canastillo_estado'      => 'Estado',
+    'canastillo_color'       => 'Color',
     
     'id' => 'ID',
     'created' => 'Fecha de creación',
