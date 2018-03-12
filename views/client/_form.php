@@ -53,13 +53,6 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'canastillo_estado')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'canastillo_color')->textInput(['maxlength' => true]) ?>
     <div class="form-group">
-        <label>Calilla de Canastillos</label>
-        <?= $form->field($model, 'canastillo_sigla')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'canastillo_estado')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'canastillo_color')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('client', 'create') : Yii::t('client', 'update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
