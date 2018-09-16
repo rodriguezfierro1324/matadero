@@ -167,56 +167,30 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
          switch ($user_rol){
             case 'admin':
                 return [
-                    ['label' => 'Tickets', 
+                    ['label' => 'Usuarios', 
                         'items'=>[
-                            ['label'=>Yii::t('ticket-receipt','ticket-receipts'), 'url' => ['/ticket-receipt/index']],
-                            ['label'=>Yii::t('ticket-receipt','create'), 'url' => ['/ticket-receipt/create']],
-                            ['label'=>'','options'=>['class'=>'divider']],
-                            ['label'=>Yii::t('ticket-dispatch','ticket-dispatchs'), 'url' => ['/ticket-dispatch/index']],
-                            ['label'=>Yii::t('ticket-dispatch','create'), 'url' => ['/ticket-dispatch/create']],                    
+                            ['label'=>Yii::t('user','users'), 'url' => ['/user/index']],                 
                         ]],
-                    ['label' => Yii::t('lot','lots'),
-                    'items'=>[
-                            ['label'=>Yii::t('lot','lots'), 'url' => ['/lot/index']],
-                            ['label'=>Yii::t('lot','create'), 'url' => ['/lot/create']],
-                            ['label'=>'','options'=>['class'=>'divider']],
-                            ['label'=>Yii::t('pigment','create'), 'url' => ['/pigment/create']],
-                            ['label'=>Yii::t('type-chicken','create'), 'url' => ['/type-chicken/create']],
-
-                        ]],
-                    ['label' => Yii::t('cage','cages'), 
-                        'items'=>[
-                            ['label'=>Yii::t('cage','cages'), 'url' => ['/cage/index']],
-                            ['label'=>Yii::t('cage','create'), 'url' => ['/cage/create']]
-                        ]],                
-                    ['label' => Yii::t('user','users'), 
-                        'items'=>[
-                            ['label'=>Yii::t('user','users'), 'url' => ['/user/index']],
-                            ['label'=>Yii::t('user','create'), 'url' => ['/user/create']]
-                        ]],
-                    ['label' => Yii::t('client','client'),
-                        'items'=>[
-                            ['label'=>Yii::t('client','clients'), 'url' => ['/client/index']],
-                            ['label'=>Yii::t('client','create'), 'url' => ['/client/create']]
-                        ]],
-                    // ['label' => Yii::t('discard','discard'),
-                    //     'items'=>[
-                    //         ['label'=>Yii::t('discard','discards'), 'url' => ['/discard/index']],
-                    //         ['label'=>Yii::t('discard','create'), 'url' => ['/discard/create']]
-                    //     ]],
-                    ['label' => Yii::t('truck','truck'),
-                        'items'=>[
-                            ['label'=>Yii::t('driver','drivers'), 'url' => ['/driver/index']],
-                            ['label'=>Yii::t('driver','create'), 'url' => ['/driver/create']],
-                            ['label'=>'','options'=>['class'=>'divider']],
-                            ['label'=>Yii::t('truck','trucks'), 'url' => ['/truck/index']],
-                            ['label'=>Yii::t('truck','create'), 'url' => ['/truck/create']]
-                        ]],
-                    ['label' => Yii::t('provider','provider'),
+                    ['label' => 'Parámetros', 
                         'items'=>[
                             ['label'=>Yii::t('provider','providers'), 'url' => ['/provider/index']],
-                            ['label'=>Yii::t('provider','create'), 'url' => ['/provider/create']]
-                        ]],            
+                            ['label'=>Yii::t('driver','drivers'), 'url' => ['/driver/index']],
+                            ['label'=>'','options'=>['class'=>'divider']],
+                            ['label'=>Yii::t('client','clients'), 'url' => ['/client/index']],
+                            ['label'=>'','options'=>['class'=>'divider']],
+                            ['label'=>Yii::t('pigment','pigment'), 'url' => ['/pigment/create']],
+                            ['label'=>Yii::t('type-chicken','type-chicken'), 'url' => ['/type-chicken/create']],   
+                        ]],
+                    ['label' => 'Procesos', 
+                        'items'=>[
+                            ['label'=>'Recepción', 'url' => ['/ticket-receipt/index']],
+                            ['label'=>Yii::t('lot','lots'), 'url' => ['/lot/index']],
+                            ['label'=>'','options'=>['class'=>'divider']],
+                            ['label'=>'Despacho', 'url' => ['/ticket-dispatch/index']],
+                            ['label'=>'','options'=>['class'=>'divider']],
+                            ['label'=>'Ingreso/Salida de Jaulas', 'url' => ['/cage/index']],
+                            ['label'=>'Ingreso/Salida de Canastillos', 'url' => ['#']],                    
+                        ]],
                     Yii::$app->user->isGuest ? (
                         ['label' => 'Login', 'url' => ['/site/login']]
                     ) : (
