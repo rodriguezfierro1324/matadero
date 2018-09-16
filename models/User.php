@@ -162,8 +162,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
          // echo Yii::$app->user->identity->username;
          // die();
-        $user_rol = Yii::$app->user->identity->username;
-        //$user_rol = "admin";
+        //$user_rol = Yii::$app->user->identity->username;
+        $user_rol = "admin";
          switch ($user_rol){
             case 'admin':
                 return [
